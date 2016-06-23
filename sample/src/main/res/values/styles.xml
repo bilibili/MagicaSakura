@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="Widget.App.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:gravity">center_vertical</item>
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
+</resources>

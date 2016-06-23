@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_card_background"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_half">
+
+    <com.bilibili.sample.widgets.KeyEditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_edit_text_default"
+        android:drawableLeft="@drawable/ic_person_outline_white_24dp"
+        android:drawablePadding="@dimen/padding_half"
+        android:hint="input username"
+        android:padding="@dimen/padding_half"
+        android:singleLine="true"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="13sp"
+        app:backgroundTint="@color/selector_focus"
+        app:drawableLeftTint="@color/selector_focus" />
+
+    <com.bilibili.sample.widgets.KeyEditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/ic_edit_text_default"
+        android:drawableLeft="@drawable/ic_lock_outline_white_24dp"
+        android:drawablePadding="@dimen/padding_half"
+        android:hint="input password"
+        android:inputType="textPassword"
+        android:padding="@dimen/padding_half"
+        android:singleLine="true"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="13sp"
+        app:backgroundTint="@color/selector_focus"
+        app:drawableLeftTint="@color/selector_focus" />
+
+    <com.bilibili.magicasakura.widgets.TintButton
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/selector_login"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="Login In"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_large" />
+</LinearLayout>

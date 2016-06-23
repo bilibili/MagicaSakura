@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_card_background"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_half">
+
+    <com.bilibili.magicasakura.widgets.TintTextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/padding_half"
+        android:drawableRight="@drawable/selector_lock"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_half"
+        android:text="@string/textview_title"
+        android:textColor="@color/selector_text"
+        android:textSize="19sp" />
+
+    <com.bilibili.magicasakura.widgets.TintTextView
+        android:id="@+id/prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_half"
+        android:text="@string/textview_click_before"
+        android:textColor="@color/selector_text"
+        android:textColorLink="@color/theme_color_primary"
+        android:textSize="@dimen/textsize_small" />
+</LinearLayout>

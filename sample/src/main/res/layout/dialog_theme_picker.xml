@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.DialogTitle
+        android:id="@+id/title"
+        style="?android:attr/windowTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:ellipsize="end"
+        android:paddingLeft="?attr/dialogPreferredPadding"
+        android:paddingRight="?attr/dialogPreferredPadding"
+        android:paddingTop="@dimen/abc_dialog_padding_top_material"
+        android:singleLine="true"
+        android:text="Theme Color Picker"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/textsize_large" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="?attr/dialogPreferredPadding"
+        android:paddingRight="?attr/dialogPreferredPadding"
+        android:paddingTop="?attr/dialogPreferredPadding">
+
+        <ImageButton
+            android:id="@+id/theme_pink"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_pink"
+            android:src="@drawable/selector_pick_item" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/theme_purple"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_purple"
+            android:src="@drawable/selector_pick_item" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/theme_blue"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_blue"
+            android:src="@drawable/selector_pick_item" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/theme_green"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_green"
+            android:src="@drawable/selector_pick_item" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="?attr/dialogPreferredPadding"
+        android:paddingRight="?attr/dialogPreferredPadding"
+        android:paddingTop="?attr/dialogPreferredPadding">
+
+        <ImageButton
+            android:id="@+id/theme_green_light"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_green_light"
+            android:src="@drawable/selector_pick_item" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/theme_yellow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_yellow"
+            android:src="@drawable/selector_pick_item" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/theme_orange"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_orange"
+            android:src="@drawable/selector_pick_item" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/theme_red"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_red"
+            android:src="@drawable/selector_pick_item" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonPanel"
+        style="?attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="?attr/dialogPreferredPadding">
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <com.bilibili.magicasakura.widgets.TintButton
+            android:id="@android:id/button2"
+            style="?attr/buttonBarNegativeButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/cancel"
+            android:textColor="@color/selector_primary_click" />
+
+        <com.bilibili.magicasakura.widgets.TintButton
+            android:id="@android:id/button1"
+            style="?attr/buttonBarPositiveButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/confirm"
+            android:textColor="@color/selector_primary_click" />
+    </LinearLayout>
+
+</LinearLayout>

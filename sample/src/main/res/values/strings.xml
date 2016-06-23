@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MagicaSakura</string>
+
+    <string name="cancel">cancel</string>
+    <string name="confirm">ok</string>
+    <string name="textview_title">Unlock it</string>
+    <string name="textview_click_before">Unlock it to open the door of the new world !</string>
+    <string name="textview_click_after">Go to : www.bilibili.com</string>
+</resources>
