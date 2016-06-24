@@ -11,14 +11,14 @@ import android.content.SharedPreferences;
 public class ThemeHelper {
     private static final String CURRENT_THEME = "theme_current";
 
-    public static final int THEME_PINK = 0x1;
-    public static final int THEME_PURPLE = 0x2;
-    public static final int THEME_BLUE = 0x3;
-    public static final int THEME_GREEN = 0x4;
-    public static final int THEME_GREEN_LIGHT = 0x5;
-    public static final int THEME_YELLOW = 0x6;
-    public static final int THEME_ORANGE = 0x7;
-    public static final int THEME_RED = 0x8;
+    public static final int CRAD_SAKURA = 0x1;
+    public static final int CARD_HOPE = 0x2;
+    public static final int CARD_STORM = 0x3;
+    public static final int CARD_WOOD = 0x4;
+    public static final int CARD_LIGHT = 0x5;
+    public static final int CARD_THUNDER = 0x6;
+    public static final int CARD_SAND = 0x7;
+    public static final int CARD_FIREY = 0x8;
 
     public static SharedPreferences getSharePreference(Context context) {
         return context.getSharedPreferences("multiple_theme", Context.MODE_PRIVATE);
@@ -31,10 +31,32 @@ public class ThemeHelper {
     }
 
     public static int getTheme(Context context) {
-        return getSharePreference(context).getInt(CURRENT_THEME, THEME_PINK);
+        return getSharePreference(context).getInt(CURRENT_THEME, CRAD_SAKURA);
     }
 
     public static boolean isDefaultTheme(Context context) {
-        return getTheme(context) == THEME_PINK;
+        return getTheme(context) == CRAD_SAKURA;
+    }
+
+    public static String getName(int currentTheme) {
+        switch (currentTheme) {
+            case CRAD_SAKURA:
+                return "THE SAKURA";
+            case CARD_STORM:
+                return "THE STORM";
+            case CARD_WOOD:
+                return "THE WOOD";
+            case CARD_LIGHT:
+                return "THE LIGHT";
+            case CARD_HOPE:
+                return "THE HOPE";
+            case CARD_THUNDER:
+                return "THE THUNDER";
+            case CARD_SAND:
+                return "THE SAND";
+            case CARD_FIREY:
+                return "THE FIREY";
+        }
+        return "THE RETURN";
     }
 }

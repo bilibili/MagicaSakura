@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.bilibili.sample.R;
 import com.bilibili.sample.utils.ThemeHelper;
@@ -16,9 +16,9 @@ import com.bilibili.sample.utils.ThemeHelper;
  * @author xyczero
  * @time 16/5/29
  */
-public class ThemePickerDialog extends DialogFragment implements View.OnClickListener {
-    public static final String TAG = "ThemePickerDialog";
-    ImageButton[] mImageButtons = new ImageButton[8];
+public class CardPickerDialog extends DialogFragment implements View.OnClickListener {
+    public static final String TAG = "CardPickerDialog";
+    ImageView[] mCards = new ImageView[8];
     Button mConfirm;
     Button mCancel;
 
@@ -43,17 +43,17 @@ public class ThemePickerDialog extends DialogFragment implements View.OnClickLis
         super.onViewCreated(view, savedInstanceState);
         mCancel = (Button) view.findViewById(android.R.id.button2);
         mConfirm = (Button) view.findViewById(android.R.id.button1);
-        mImageButtons[0] = (ImageButton) view.findViewById(R.id.theme_pink);
-        mImageButtons[1] = (ImageButton) view.findViewById(R.id.theme_purple);
-        mImageButtons[2] = (ImageButton) view.findViewById(R.id.theme_blue);
-        mImageButtons[3] = (ImageButton) view.findViewById(R.id.theme_green);
-        mImageButtons[4] = (ImageButton) view.findViewById(R.id.theme_green_light);
-        mImageButtons[5] = (ImageButton) view.findViewById(R.id.theme_yellow);
-        mImageButtons[6] = (ImageButton) view.findViewById(R.id.theme_orange);
-        mImageButtons[7] = (ImageButton) view.findViewById(R.id.theme_red);
+        mCards[0] = (ImageView) view.findViewById(R.id.theme_pink);
+        mCards[1] = (ImageView) view.findViewById(R.id.theme_purple);
+        mCards[2] = (ImageView) view.findViewById(R.id.theme_blue);
+        mCards[3] = (ImageView) view.findViewById(R.id.theme_green);
+        mCards[4] = (ImageView) view.findViewById(R.id.theme_green_light);
+        mCards[5] = (ImageView) view.findViewById(R.id.theme_yellow);
+        mCards[6] = (ImageView) view.findViewById(R.id.theme_orange);
+        mCards[7] = (ImageView) view.findViewById(R.id.theme_red);
         setImageButtons(mCurrentTheme);
-        for (ImageButton button : mImageButtons) {
-            button.setOnClickListener(this);
+        for (ImageView card : mCards) {
+            card.setOnClickListener(this);
         }
         mCancel.setOnClickListener(this);
         mConfirm.setOnClickListener(this);
@@ -70,35 +70,35 @@ public class ThemePickerDialog extends DialogFragment implements View.OnClickLis
                 dismiss();
                 break;
             case R.id.theme_pink:
-                mCurrentTheme = ThemeHelper.THEME_PINK;
+                mCurrentTheme = ThemeHelper.CRAD_SAKURA;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_purple:
-                mCurrentTheme = ThemeHelper.THEME_PURPLE;
+                mCurrentTheme = ThemeHelper.CARD_HOPE;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_blue:
-                mCurrentTheme = ThemeHelper.THEME_BLUE;
+                mCurrentTheme = ThemeHelper.CARD_STORM;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_green:
-                mCurrentTheme = ThemeHelper.THEME_GREEN;
+                mCurrentTheme = ThemeHelper.CARD_WOOD;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_green_light:
-                mCurrentTheme = ThemeHelper.THEME_GREEN_LIGHT;
+                mCurrentTheme = ThemeHelper.CARD_LIGHT;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_yellow:
-                mCurrentTheme = ThemeHelper.THEME_YELLOW;
+                mCurrentTheme = ThemeHelper.CARD_THUNDER;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_orange:
-                mCurrentTheme = ThemeHelper.THEME_ORANGE;
+                mCurrentTheme = ThemeHelper.CARD_SAND;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_red:
-                mCurrentTheme = ThemeHelper.THEME_RED;
+                mCurrentTheme = ThemeHelper.CARD_FIREY;
                 setImageButtons(mCurrentTheme);
                 break;
             default:
@@ -107,14 +107,14 @@ public class ThemePickerDialog extends DialogFragment implements View.OnClickLis
     }
 
     private void setImageButtons(int currentTheme) {
-        mImageButtons[0].setSelected(currentTheme == ThemeHelper.THEME_PINK);
-        mImageButtons[1].setSelected(currentTheme == ThemeHelper.THEME_PURPLE);
-        mImageButtons[2].setSelected(currentTheme == ThemeHelper.THEME_BLUE);
-        mImageButtons[3].setSelected(currentTheme == ThemeHelper.THEME_GREEN);
-        mImageButtons[4].setSelected(currentTheme == ThemeHelper.THEME_GREEN_LIGHT);
-        mImageButtons[5].setSelected(currentTheme == ThemeHelper.THEME_YELLOW);
-        mImageButtons[6].setSelected(currentTheme == ThemeHelper.THEME_ORANGE);
-        mImageButtons[7].setSelected(currentTheme == ThemeHelper.THEME_RED);
+        mCards[0].setSelected(currentTheme == ThemeHelper.CRAD_SAKURA);
+        mCards[1].setSelected(currentTheme == ThemeHelper.CARD_HOPE);
+        mCards[2].setSelected(currentTheme == ThemeHelper.CARD_STORM);
+        mCards[3].setSelected(currentTheme == ThemeHelper.CARD_WOOD);
+        mCards[4].setSelected(currentTheme == ThemeHelper.CARD_LIGHT);
+        mCards[5].setSelected(currentTheme == ThemeHelper.CARD_THUNDER);
+        mCards[6].setSelected(currentTheme == ThemeHelper.CARD_SAND);
+        mCards[7].setSelected(currentTheme == ThemeHelper.CARD_FIREY);
     }
 
     public void setClickListener(ClickListener clickListener) {

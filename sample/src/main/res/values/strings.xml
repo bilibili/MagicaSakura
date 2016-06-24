@@ -6,4 +6,8 @@
     <string name="textview_title">Unlock it</string>
     <string name="textview_click_before">Unlock it to open the door of the new world !</string>
     <string name="textview_click_after">Go to : www.bilibili.com</string>
+
+    <string name="magicasrkura_prompt_0">隐藏着黑暗力量的钥匙啊，在我面前显示你真正的力量，小樱命令你，封印解除！</string>
+    <string name="magicasrkura_prompt_1">隐藏着星星力量的钥匙啊，在我面前显示你真正的力量，小樱命令你，封印解除！</string>
+    <string name="magicasrkura_prompt_2">库洛里多创造的库洛牌啊，请你舍弃旧形象，以小樱之名命令你，封印解除！</string>
 </resources>

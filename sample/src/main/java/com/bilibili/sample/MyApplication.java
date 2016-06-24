@@ -47,19 +47,19 @@ public class MyApplication extends Application implements ThemeUtils.switchColor
     }
 
     private String getTheme(Context context) {
-        if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_BLUE) {
+        if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_STORM) {
             return "blue";
-        } else if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_PURPLE) {
+        } else if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_HOPE) {
             return "purple";
-        } else if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_GREEN) {
+        } else if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_WOOD) {
             return "green";
-        } else if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_GREEN_LIGHT) {
+        } else if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_LIGHT) {
             return "green_light";
-        } else if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_YELLOW) {
+        } else if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_THUNDER) {
             return "yellow";
-        } else if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_ORANGE) {
+        } else if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_SAND) {
             return "orange";
-        } else if (ThemeHelper.getTheme(context) == ThemeHelper.THEME_RED) {
+        } else if (ThemeHelper.getTheme(context) == ThemeHelper.CARD_FIREY) {
             return "red";
         }
         return null;

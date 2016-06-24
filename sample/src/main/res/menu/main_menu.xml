@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/change_theme"
-        android:icon="@drawable/ic_magicasakura"
+        android:icon="@drawable/ic_card_24dp"
         android:title="选择主题"
         app:showAsAction="always" />
 </menu>

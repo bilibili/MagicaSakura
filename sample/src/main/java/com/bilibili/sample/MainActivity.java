@@ -23,19 +23,21 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bilibili.sample.dialog.ProgressCheckDialog;
-import com.bilibili.sample.dialog.ProgressStyleDialog;
-import com.bilibili.sample.dialog.ThemePickerDialog;
-import com.bilibili.sample.utils.ThemeHelper;
-import com.bilibili.sample.widgets.KeyEditText;
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.TintImageView;
+import com.bilibili.sample.dialog.ProgressCheckDialog;
+import com.bilibili.sample.dialog.ProgressStyleDialog;
+import com.bilibili.sample.dialog.CardPickerDialog;
+import com.bilibili.sample.utils.SnackAnimationUtil;
+import com.bilibili.sample.utils.ThemeHelper;
+import com.bilibili.sample.widgets.KeyEditText;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
-public class MainActivity extends AppCompatActivity implements ThemePickerDialog.ClickListener {
+public class MainActivity extends AppCompatActivity implements CardPickerDialog.ClickListener {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -100,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.change_theme) {
-            ThemePickerDialog dialog = new ThemePickerDialog();
+            CardPickerDialog dialog = new CardPickerDialog();
             dialog.setClickListener(this);
-            dialog.show(getSupportFragmentManager(), ThemePickerDialog.TAG);
+            dialog.show(getSupportFragmentManager(), CardPickerDialog.TAG);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -113,21 +115,37 @@ public class MainActivity extends AppCompatActivity implements ThemePickerDialog
         if (ThemeHelper.getTheme(MainActivity.this) != currentTheme) {
             ThemeHelper.setTheme(MainActivity.this, currentTheme);
             ThemeUtils.refreshUI(MainActivity.this, new ThemeUtils.ExtraRefreshable() {
-                @Override
-                public void refreshGlobal(Activity activity) {
-                    //for global setting, just do once
-                    final MainActivity context = MainActivity.this;
-                    ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
-                    setTaskDescription(taskDescription);
-                    getWindow().setStatusBarColor(ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
-                }
+                        @Override
+                        public void refreshGlobal(Activity activity) {
+                            //for global setting, just do once
+                            final MainActivity context = MainActivity.this;
+                            ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
+                            setTaskDescription(taskDescription);
+                            getWindow().setStatusBarColor(ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
+                        }
 
-                @Override
-                public void refreshSpecificView(View view) {
-                    //TODO: will do this for each traversal
-                }
-            });
+                        @Override
+                        public void refreshSpecificView(View view) {
+                            //TODO: will do this for each traversal
+                        }
+                    }
+            );
+            View view = findViewById(R.id.snack_layout);
+            if (view != null) {
+                TextView textView = (TextView) view.findViewById(R.id.content);
+                textView.setText(getSnackContent(currentTheme));
+                SnackAnimationUtil.with(this, R.anim.snack_in, R.anim.snack_out)
+                        .setDismissDelayTime(1000)
+                        .setTarget(view)
+                        .play();
+            }
         }
+    }
+
+    private String getSnackContent(int current){
+        Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        return getResources().getString(getResources().getIdentifier("magicasrkura_prompt_" + random.nextInt(3), "string", getPackageName())) + ThemeHelper.getName(current);
     }
 
     public static class Adapter extends RecyclerView.Adapter<ViewHolder> {
