@@ -31,7 +31,7 @@ public class ColorStateListUtils {
         ColorStateList cl = null;
         if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT
                 && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
-            cl = ColorStateList.valueOf(com.bilibili.magicasakura.utils.ThemeUtils.replaceColor(context, value.data));
+            cl = ColorStateList.valueOf(ThemeUtils.replaceColorById(context, value.resourceId));
         } else {
             final String file = value.string.toString();
             try {
