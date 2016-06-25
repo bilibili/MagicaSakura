@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- for library use when is in night theme-->
+        <item name="themeColorSecondary">@color/theme_color_secondary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimary">@color/theme_color_primary</item>
+        <item name="android:colorPrimaryDark">@color/theme_color_primary_dark</item>
+        <item name="android:colorAccent">@color/theme_color_primary_dark</item>
+        <item name="android:colorControlActivated">@color/theme_color_primary</item>
+        <item name="android:colorControlHighlight">@color/gray_trans</item>
+        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="android:colorEdgeEffect">@color/gray_trans</item>
+
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:textColorPrimary">@color/text_primary_color</item>
+
+    </style>
+
+</resources>

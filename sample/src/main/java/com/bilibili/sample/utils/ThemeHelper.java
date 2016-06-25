@@ -11,7 +11,7 @@ import android.content.SharedPreferences;
 public class ThemeHelper {
     private static final String CURRENT_THEME = "theme_current";
 
-    public static final int CRAD_SAKURA = 0x1;
+    public static final int CARD_SAKURA = 0x1;
     public static final int CARD_HOPE = 0x2;
     public static final int CARD_STORM = 0x3;
     public static final int CARD_WOOD = 0x4;
@@ -31,16 +31,16 @@ public class ThemeHelper {
     }
 
     public static int getTheme(Context context) {
-        return getSharePreference(context).getInt(CURRENT_THEME, CRAD_SAKURA);
+        return getSharePreference(context).getInt(CURRENT_THEME, CARD_SAKURA);
     }
 
     public static boolean isDefaultTheme(Context context) {
-        return getTheme(context) == CRAD_SAKURA;
+        return getTheme(context) == CARD_SAKURA;
     }
 
     public static String getName(int currentTheme) {
         switch (currentTheme) {
-            case CRAD_SAKURA:
+            case CARD_SAKURA:
                 return "THE SAKURA";
             case CARD_STORM:
                 return "THE STORM";

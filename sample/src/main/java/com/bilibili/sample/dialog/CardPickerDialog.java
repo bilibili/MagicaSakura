@@ -70,7 +70,7 @@ public class CardPickerDialog extends DialogFragment implements View.OnClickList
                 dismiss();
                 break;
             case R.id.theme_pink:
-                mCurrentTheme = ThemeHelper.CRAD_SAKURA;
+                mCurrentTheme = ThemeHelper.CARD_SAKURA;
                 setImageButtons(mCurrentTheme);
                 break;
             case R.id.theme_purple:
@@ -107,7 +107,7 @@ public class CardPickerDialog extends DialogFragment implements View.OnClickList
     }
 
     private void setImageButtons(int currentTheme) {
-        mCards[0].setSelected(currentTheme == ThemeHelper.CRAD_SAKURA);
+        mCards[0].setSelected(currentTheme == ThemeHelper.CARD_SAKURA);
         mCards[1].setSelected(currentTheme == ThemeHelper.CARD_HOPE);
         mCards[2].setSelected(currentTheme == ThemeHelper.CARD_STORM);
         mCards[3].setSelected(currentTheme == ThemeHelper.CARD_WOOD);

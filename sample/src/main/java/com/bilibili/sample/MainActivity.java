@@ -3,6 +3,7 @@ package com.bilibili.sample;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.util.SparseArrayCompat;
@@ -25,9 +26,9 @@ import android.widget.TextView;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.TintImageView;
+import com.bilibili.sample.dialog.CardPickerDialog;
 import com.bilibili.sample.dialog.ProgressCheckDialog;
 import com.bilibili.sample.dialog.ProgressStyleDialog;
-import com.bilibili.sample.dialog.CardPickerDialog;
 import com.bilibili.sample.utils.SnackAnimationUtil;
 import com.bilibili.sample.utils.ThemeHelper;
 import com.bilibili.sample.widgets.KeyEditText;
@@ -85,12 +86,14 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ThemeUtils.getColorById(this, R.color.theme_color_primary_dark));
-        ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(this, android.R.attr.colorPrimary));
-        setTaskDescription(description);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ThemeUtils.getColorById(this, R.color.theme_color_primary_dark));
+            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(this, android.R.attr.colorPrimary));
+            setTaskDescription(description);
+        }
     }
 
     @Override
@@ -118,10 +121,12 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
                         @Override
                         public void refreshGlobal(Activity activity) {
                             //for global setting, just do once
-                            final MainActivity context = MainActivity.this;
-                            ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
-                            setTaskDescription(taskDescription);
-                            getWindow().setStatusBarColor(ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
+                            if (Build.VERSION.SDK_INT >= 21) {
+                                final MainActivity context = MainActivity.this;
+                                ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
+                                setTaskDescription(taskDescription);
+                                getWindow().setStatusBarColor(ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
+                            }
                         }
 
                         @Override

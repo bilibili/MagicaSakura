@@ -23,8 +23,8 @@ android {
     }
 }
 
-def siteUrl = "https://github.com/xyczero/MagicaSakura"
-def gitUrl = "https://github.com/xyczero/MagicaSakura.git"
+def siteUrl = "https://github.com/Bilibili/MagicaSakura"
+def gitUrl = "https://github.com/Bilibili/MagicaSakura.git"
 
 group = "com.bilibili"
 
