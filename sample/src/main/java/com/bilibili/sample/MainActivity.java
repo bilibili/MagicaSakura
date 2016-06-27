@@ -255,17 +255,21 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
     }
 
     public static class ViewHolderLabel extends ViewHolder {
-        TextView textView;
+        TextView title;
+        TextView content;
 
         public ViewHolderLabel(View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.prompt);
+            title = (TextView) itemView.findViewById(R.id.title);
+            content = (TextView) itemView.findViewById(R.id.prompt);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     boolean isSelected = v.getTag() != null && (boolean) v.getTag();
                     v.setTag(!isSelected);
-                    textView.setText(isSelected ? R.string.textview_click_before : R.string.textview_click_after);
+                    title.setText(isSelected ? R.string.textview_title_unlock : R.string.textview_title_lock);
+                    title.setCompoundDrawablesWithIntrinsicBounds(0, 0, isSelected ? R.drawable.selector_lock : R.drawable.selector_unlock, 0);
+                    content.setText(isSelected ? R.string.textview_click_before : R.string.textview_click_after);
                 }
             });
         }

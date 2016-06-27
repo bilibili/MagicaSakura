@@ -24,14 +24,14 @@
     android:padding="@dimen/padding_half">
 
     <com.bilibili.magicasakura.widgets.TintTextView
-        android:id="@+id/textview"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/padding_half"
         android:drawableRight="@drawable/selector_lock"
         android:gravity="center_vertical"
         android:padding="@dimen/padding_half"
-        android:text="@string/textview_title"
+        android:text="@string/textview_title_unlock"
         android:textColor="@color/selector_text"
         android:textSize="19sp" />
 
@@ -44,6 +44,7 @@
         android:padding="@dimen/padding_half"
         android:text="@string/textview_click_before"
         android:textColor="@color/selector_text"
+        android:textColorHighlight="@color/gray_light"
         android:textColorLink="@color/theme_color_primary"
         android:textSize="@dimen/textsize_small" />
 </LinearLayout>
