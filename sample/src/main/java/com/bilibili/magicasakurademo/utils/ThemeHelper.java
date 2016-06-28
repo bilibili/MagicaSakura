@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bilibili.sample.utils;
+package com.bilibili.magicasakurademo.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

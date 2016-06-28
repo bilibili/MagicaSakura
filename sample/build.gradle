@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.bilibili.sample"
+        applicationId "com.bilibili.magicasakurademo"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

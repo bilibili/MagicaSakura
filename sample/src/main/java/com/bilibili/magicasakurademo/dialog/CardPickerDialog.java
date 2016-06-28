@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bilibili.sample.dialog;
+package com.bilibili.magicasakurademo.dialog;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,8 +25,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.bilibili.sample.R;
-import com.bilibili.sample.utils.ThemeHelper;
+import com.bilibili.magicasakurademo.R;
+import com.bilibili.magicasakurademo.utils.ThemeHelper;
 
 /**
  * @author xyczero

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bilibili.sample.widgets;
+package com.bilibili.magicasakurademo.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;

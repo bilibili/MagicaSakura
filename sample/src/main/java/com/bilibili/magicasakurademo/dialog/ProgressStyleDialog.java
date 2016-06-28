@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bilibili.sample.dialog;
+package com.bilibili.magicasakurademo.dialog;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,7 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 
-import com.bilibili.sample.R;
+import com.bilibili.magicasakurademo.R;
 
 
 /**

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.bilibili.sample;
+package com.bilibili.magicasakurademo;
 
 import android.app.Application;
 import android.content.Context;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 
-import com.bilibili.sample.utils.ThemeHelper;
+import com.bilibili.magicasakurademo.utils.ThemeHelper;
 import com.bilibili.magicasakura.utils.ThemeUtils;
 
 /**

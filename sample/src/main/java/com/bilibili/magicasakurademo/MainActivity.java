@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bilibili.sample;
+package com.bilibili.magicasakurademo;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -42,12 +42,12 @@ import android.widget.TextView;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.widgets.TintImageView;
-import com.bilibili.sample.dialog.CardPickerDialog;
-import com.bilibili.sample.dialog.ProgressCheckDialog;
-import com.bilibili.sample.dialog.ProgressStyleDialog;
-import com.bilibili.sample.utils.SnackAnimationUtil;
-import com.bilibili.sample.utils.ThemeHelper;
-import com.bilibili.sample.widgets.KeyEditText;
+import com.bilibili.magicasakurademo.dialog.CardPickerDialog;
+import com.bilibili.magicasakurademo.dialog.ProgressCheckDialog;
+import com.bilibili.magicasakurademo.dialog.ProgressStyleDialog;
+import com.bilibili.magicasakurademo.utils.SnackAnimationUtil;
+import com.bilibili.magicasakurademo.utils.ThemeHelper;
+import com.bilibili.magicasakurademo.widgets.KeyEditText;
 
 import java.util.ArrayList;
 import java.util.List;
