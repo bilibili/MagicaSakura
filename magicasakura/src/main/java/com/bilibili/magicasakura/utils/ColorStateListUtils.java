@@ -108,7 +108,8 @@ public class ColorStateListUtils {
             }
 
             TypedArray a1 = context.obtainStyledAttributes(attrs, new int[]{android.R.attr.color});
-            final int baseColor = com.bilibili.magicasakura.utils.ThemeUtils.replaceColorById(context, a1.getResourceId(0, Color.MAGENTA));
+            final int value = a1.getResourceId(0, Color.MAGENTA);
+            final int baseColor = value == Color.MAGENTA ? Color.MAGENTA : ThemeUtils.replaceColorById(context, value);
             a1.recycle();
             TypedArray a2 = context.obtainStyledAttributes(attrs, new int[]{android.R.attr.alpha});
             final float alphaMod = a2.getFloat(0, 1.0f);
