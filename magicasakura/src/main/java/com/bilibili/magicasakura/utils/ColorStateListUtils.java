@@ -47,6 +47,9 @@ public class ColorStateListUtils {
         ColorStateList cl = null;
         if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT
                 && value.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+            //Assume that "color/theme_color_primary" and "color/theme_color_profile" have the same color value;
+            //However, "color/theme_color_primary" need to replace by themeId, "color/theme_color_profile" not.
+            //If use value.data may cause "color/theme_color_profile" still been replaced by themeId
             cl = ColorStateList.valueOf(ThemeUtils.replaceColorById(context, value.resourceId));
         } else {
             final String file = value.string.toString();
