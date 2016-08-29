@@ -24,8 +24,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.util.AttributeSet;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
 import android.widget.TextView;
 
+import com.bilibili.magicasakura.utils.InputConnectionImpl;
 import com.bilibili.magicasakura.utils.TintManager;
 
 /**
@@ -186,5 +189,14 @@ public class TintTextView extends TextView implements Tintable, AppCompatBackgro
         if (mCompoundDrawableHelper != null) {
             mCompoundDrawableHelper.tint();
         }
+    }
+
+    @Override
+    public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
+        InputConnection conn = super.onCreateInputConnection(outAttrs);
+        if (conn != null) {
+            return new InputConnectionImpl(conn, false);
+        }
+        return null;
     }
 }
