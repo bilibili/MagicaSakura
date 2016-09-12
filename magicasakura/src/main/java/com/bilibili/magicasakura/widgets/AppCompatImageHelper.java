@@ -150,6 +150,9 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
                 setImageDrawable(null);
             }
             setImageDrawable(image);
+
+            //Because drawable's pointer is not changing, need invoke invalidate to draw again when tint is changing;
+            mView.invalidate();
             return true;
         }
         return false;
