@@ -19,7 +19,6 @@ package com.bilibili.magicasakura.widgets;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
@@ -135,24 +134,21 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
     private boolean applySupportImageTint() {
         Drawable image = ((ImageView) mView).getDrawable();
         if (image != null && mImageTintInfo != null && mImageTintInfo.mHasTintList) {
-            image.mutate();
-            image = DrawableCompat.wrap(image);
+            Drawable tintDrawable = image.mutate();
+            tintDrawable = DrawableCompat.wrap(tintDrawable);
             if (mImageTintInfo.mHasTintList) {
-                DrawableCompat.setTintList(image, mImageTintInfo.mTintList);
+                DrawableCompat.setTintList(tintDrawable, mImageTintInfo.mTintList);
             }
             if (mImageTintInfo.mHasTintMode) {
-                DrawableCompat.setTintMode(image, mImageTintInfo.mTintMode);
+                DrawableCompat.setTintMode(tintDrawable, mImageTintInfo.mTintMode);
             }
-            if (image.isStateful()) {
-                image.setState(mView.getDrawableState());
+            if (tintDrawable.isStateful()) {
+                tintDrawable.setState(mView.getDrawableState());
             }
-            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
-                setImageDrawable(null);
+            setImageDrawable(tintDrawable);
+            if (image == tintDrawable) {
+                tintDrawable.invalidateSelf();
             }
-            setImageDrawable(image);
-
-            //Because drawable's pointer is not changing, need invoke invalidate to draw again when tint is changing;
-            mView.invalidate();
             return true;
         }
         return false;
