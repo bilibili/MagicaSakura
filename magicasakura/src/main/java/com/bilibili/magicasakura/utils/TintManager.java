@@ -168,7 +168,7 @@ public class TintManager {
                 if (cs != null) {
                     printLog("[getCacheDrawable] Get drawable from cache: " +
                             context.getResources().getResourceName(key));
-                    return cs.newDrawable(context.getResources());
+                    return cs.newDrawable();
                 } else {
                     mCacheDrawables.delete(key);
                 }
