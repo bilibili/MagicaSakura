@@ -21,6 +21,11 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 ##Demo
 
 ![ScreenShot.gif](https://github.com/xyczero/MagicaSakura/blob/master/screenshot/magicasakura.gif)
+ 
+ You can download the lastest sample apk from Google Play.
+
+<a href="https://play.google.com/store/apps/details?id=com.bilibili.magicasakurademo"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" height="60" data-canonical-src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" style="max-width:100%;"></a>
+ 
 
 ##Gradle Dependency
 ```
