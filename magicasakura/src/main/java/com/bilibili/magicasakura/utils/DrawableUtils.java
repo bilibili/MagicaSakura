@@ -21,6 +21,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
@@ -57,7 +58,7 @@ public abstract class DrawableUtils {
 
         if (typedValue.type >= TypedValue.TYPE_FIRST_COLOR_INT
                 && typedValue.type <= TypedValue.TYPE_LAST_COLOR_INT) {
-            dr = new ColorDrawable(com.bilibili.magicasakura.utils.ThemeUtils.replaceColorById(context, resId));
+            dr = new ColorDrawable(ThemeUtils.replaceColorById(context, resId));
         } else {
             try {
                 if (typedValue.string != null && typedValue.string.toString().endsWith("xml")) {
@@ -157,8 +158,8 @@ public abstract class DrawableUtils {
     }
 
     static ColorFilter getAttrColorFilter(Context context, AttributeSet attrs, int tintAttr, int tintModeAttr) {
-        final int color = getTintColor(context, attrs, tintAttr, -1);
-        if (color == -1) return null;
+        final int color = getAttrColor(context, attrs, tintAttr, Color.TRANSPARENT);
+        if (color == Color.TRANSPARENT) return null;
         return new PorterDuffColorFilter(color, getTintMode(context, attrs, tintModeAttr));
     }
 
@@ -171,18 +172,6 @@ public abstract class DrawableUtils {
         final ColorStateList cls = TintManager.get(context).getColorStateList(a.getResourceId(0, 0));
         a.recycle();
         return cls;
-    }
-
-    static int getTintColor(Context context, AttributeSet attrs, int tintAttr, int defaultValue) {
-        Resources res = context.getResources();
-        TypedArray a = obtainAttributes(res, context.getTheme(), attrs, new int[]{tintAttr});
-        if (!a.hasValue(0)) {
-            a.recycle();
-            return defaultValue;
-        }
-        final int color = com.bilibili.magicasakura.utils.ThemeUtils.getColor(context, res.getColor(a.getResourceId(0, 0)));
-        a.recycle();
-        return color;
     }
 
     static PorterDuff.Mode getTintMode(Context context, AttributeSet attrs, int tintModeAttr) {
