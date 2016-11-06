@@ -8,7 +8,7 @@ android {
     defaultConfig {
         applicationId "com.bilibili.magicasakurademo"
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName '1.0'
     }
