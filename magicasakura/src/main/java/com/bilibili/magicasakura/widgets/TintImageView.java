@@ -28,8 +28,8 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/8
  */
-public class TintImageView extends ImageView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible
-        , AppCompatImageHelper.ImageExtensible {
+public class TintImageView extends ImageView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
+        AppCompatImageHelper.ImageExtensible {
     private AppCompatBackgroundHelper mBackgroundHelper;
     private AppCompatImageHelper mImageHelper;
 

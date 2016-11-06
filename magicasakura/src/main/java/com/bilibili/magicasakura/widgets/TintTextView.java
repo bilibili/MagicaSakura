@@ -36,8 +36,8 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 15/9/14
  */
 public class TintTextView extends TextView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
-        AppCompatCompoundDrawableHelper.CompoundDrawableExtensible, com.bilibili.magicasakura.widgets.AppCompatTextHelper.TextExtensible {
-    private com.bilibili.magicasakura.widgets.AppCompatTextHelper mTextHelper;
+        AppCompatCompoundDrawableHelper.CompoundDrawableExtensible, AppCompatTextHelper.TextExtensible {
+    private AppCompatTextHelper mTextHelper;
     private AppCompatBackgroundHelper mBackgroundHelper;
     private AppCompatCompoundDrawableHelper mCompoundDrawableHelper;
 

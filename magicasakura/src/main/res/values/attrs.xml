@@ -91,4 +91,116 @@
         <attr name="progressTint" format="color" />
         <attr name="progressIndeterminateTint" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="TintTextView">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="drawableLeftTint" />
+        <attr name="drawableLeftTintMode" />
+        <attr name="drawableRightTint" />
+        <attr name="drawableRightTintMode" />
+        <attr name="drawableTopTint" />
+        <attr name="drawableTopTintMode" />
+        <attr name="drawableBottomTint" />
+        <attr name="drawableBottomTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintButton">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintEditText">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="drawableLeftTint" />
+        <attr name="drawableLeftTintMode" />
+        <attr name="drawableRightTint" />
+        <attr name="drawableRightTintMode" />
+        <attr name="drawableTopTint" />
+        <attr name="drawableTopTintMode" />
+        <attr name="drawableBottomTint" />
+        <attr name="drawableBottomTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintImageView">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="imageTint" />
+        <attr name="imageTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintCheckBox">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="compoundButtonTint" />
+        <attr name="compoundButtonTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintRadioButton">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="compoundButtonTint" />
+        <attr name="compoundButtonTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintFrameLayout">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="foregroundTint" />
+        <attr name="foregroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintRelativeLayout">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintLinearLayout">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintGridLayout">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintToolbar">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintAppBarLayout">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintProgressBar">
+        <attr name="progressTint" />
+        <attr name="progressIndeterminateTint" />
+    </declare-styleable>
+
+    <declare-styleable name="TintView">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintAutoCompleteTextView">
+        <attr name="backgroundTint" />
+        <attr name="backgroundTintMode" />
+        <attr name="drawableLeftTint" />
+        <attr name="drawableLeftTintMode" />
+        <attr name="drawableRightTint" />
+        <attr name="drawableRightTintMode" />
+        <attr name="drawableTopTint" />
+        <attr name="drawableTopTintMode" />
+        <attr name="drawableBottomTint" />
+        <attr name="drawableBottomTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintCheckedTextView">
+        <attr name="drawableLeftTint" />
+    </declare-styleable>
+
 </resources>
