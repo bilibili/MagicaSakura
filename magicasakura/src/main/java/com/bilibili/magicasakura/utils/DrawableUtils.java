@@ -44,9 +44,7 @@ import java.io.IOException;
  * @author xyczero617@gmail.com
  * @time 16/2/22
  */
-public abstract class DrawableUtils {
-
-    protected abstract Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException;
+public class DrawableUtils {
 
     static Drawable createDrawable(Context context, int resId) {
         if (resId <= 0) return null;
@@ -87,23 +85,23 @@ public abstract class DrawableUtils {
     }
 
     static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
-        final com.bilibili.magicasakura.utils.DrawableUtils drawableUtils;
+        final DrawableInflateDelegate delegate;
 
         final String name = parser.getName();
         switch (name) {
             case "selector":
-                drawableUtils = new com.bilibili.magicasakura.utils.StateListDrawableUtils();
+                delegate = new StateListDrawableInflateImpl();
                 break;
             case "shape":
-                drawableUtils = new com.bilibili.magicasakura.utils.GradientDrawableUtils();
+                delegate = new GradientDrawableInflateImpl();
                 break;
             case "layer-list":
-                drawableUtils = new com.bilibili.magicasakura.utils.LayerDrawableUtils();
+                delegate = new LayerDrawableInflateImpl();
                 break;
             default:
-                drawableUtils = null;
+                delegate = null;
         }
-        return drawableUtils == null ? null : drawableUtils.inflateDrawable(context, parser, attrs);
+        return delegate == null ? null : delegate.inflateDrawable(context, parser, attrs);
     }
 
     /**
@@ -112,7 +110,7 @@ public abstract class DrawableUtils {
      * @param attrs The attribute set.
      * @return An array of state_ attributes.
      */
-    protected int[] extractStateSet(AttributeSet attrs) {
+    static int[] extractStateSet(AttributeSet attrs) {
         int j = 0;
         final int numAttrs = attrs.getAttributeCount();
         int[] states = new int[numAttrs];

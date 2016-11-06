@@ -38,14 +38,14 @@ import java.lang.reflect.Field;
  * @author xyczero617@gmail.com
  * @time 16/2/22
  */
-public class GradientDrawableUtils extends DrawableUtils {
+class GradientDrawableInflateImpl implements DrawableInflateDelegate {
     private static Field sPaddingField;
     private static Field sStPaddingField;
     private static Field sStGradientPositions;
     private static Field sStGradientAngle;
 
     @Override
-    protected Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
+    public Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
         GradientDrawable gradientDrawable = new GradientDrawable();
         inflateGradientRootElement(context, attrs, gradientDrawable);
 
@@ -66,21 +66,21 @@ public class GradientDrawableUtils extends DrawableUtils {
             String name = parser.getName();
 
             if (name.equals("size")) {
-                final int width = getAttrDimensionPixelSize(context, attrs, android.R.attr.width);
-                final int height = getAttrDimensionPixelSize(context, attrs, android.R.attr.height);
+                final int width = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.width);
+                final int height = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.height);
                 gradientDrawable.setSize(width, height);
             } else if (name.equals("gradient") && Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                 final float centerX = getAttrFloatOrFraction(context, attrs, android.R.attr.centerX, 0.5f, 1.0f, 1.0f);
                 final float centerY = getAttrFloatOrFraction(context, attrs, android.R.attr.centerY, 0.5f, 1.0f, 1.0f);
                 gradientDrawable.setGradientCenter(centerX, centerY);
-                final boolean useLevel = getAttrBoolean(context, attrs, android.R.attr.useLevel, false);
+                final boolean useLevel = DrawableUtils.getAttrBoolean(context, attrs, android.R.attr.useLevel, false);
                 gradientDrawable.setUseLevel(useLevel);
-                final int gradientType = getAttrInt(context, attrs, android.R.attr.type, 0);
+                final int gradientType = DrawableUtils.getAttrInt(context, attrs, android.R.attr.type, 0);
                 gradientDrawable.setGradientType(gradientType);
-                final int startColor = getAttrColor(context, attrs, android.R.attr.startColor, Color.TRANSPARENT);
-                final int centerColor = getAttrColor(context, attrs, android.R.attr.centerColor, Color.TRANSPARENT);
-                final int endColor = getAttrColor(context, attrs, android.R.attr.endColor, Color.TRANSPARENT);
-                if (!getAttrHasValue(context, attrs, android.R.attr.centerColor)) {
+                final int startColor = DrawableUtils.getAttrColor(context, attrs, android.R.attr.startColor, Color.TRANSPARENT);
+                final int centerColor = DrawableUtils.getAttrColor(context, attrs, android.R.attr.centerColor, Color.TRANSPARENT);
+                final int endColor = DrawableUtils.getAttrColor(context, attrs, android.R.attr.endColor, Color.TRANSPARENT);
+                if (!DrawableUtils.getAttrHasValue(context, attrs, android.R.attr.centerColor)) {
                     gradientDrawable.setColors(new int[]{startColor, endColor});
                 } else {
                     gradientDrawable.setColors(new int[]{startColor, centerColor, endColor});
@@ -88,7 +88,7 @@ public class GradientDrawableUtils extends DrawableUtils {
                 }
 
                 if (gradientType == GradientDrawable.LINEAR_GRADIENT) {
-                    int angle = (int) getAttrFloat(context, attrs, android.R.attr.angle, 0.0f);
+                    int angle = (int) DrawableUtils.getAttrFloat(context, attrs, android.R.attr.angle, 0.0f);
                     angle %= 360;
 
                     if (angle % 45 != 0) {
@@ -129,27 +129,27 @@ public class GradientDrawableUtils extends DrawableUtils {
                     setGradientRadius(context, attrs, gradientDrawable, gradientType);
                 }
             } else if (name.equals("solid")) {
-                int color = getAttrColor(context, attrs, android.R.attr.color, Color.TRANSPARENT);
-                gradientDrawable.setColor(getAlphaColor(color, getAttrFloat(context, attrs, android.R.attr.alpha, 1.0f)));
+                int color = DrawableUtils.getAttrColor(context, attrs, android.R.attr.color, Color.TRANSPARENT);
+                gradientDrawable.setColor(getAlphaColor(color, DrawableUtils.getAttrFloat(context, attrs, android.R.attr.alpha, 1.0f)));
             } else if (name.equals("stroke")) {
-                final float alphaMod = getAttrFloat(context, attrs, android.R.attr.alpha, 1.0f);
-                final int strokeColor = getAttrColor(context, attrs, android.R.attr.color, Color.TRANSPARENT);
-                final int strokeWidth = getAttrDimensionPixelSize(context, attrs, android.R.attr.width);
-                final float dashWidth = getAttrDimension(context, attrs, android.R.attr.dashWidth);
+                final float alphaMod = DrawableUtils.getAttrFloat(context, attrs, android.R.attr.alpha, 1.0f);
+                final int strokeColor = DrawableUtils.getAttrColor(context, attrs, android.R.attr.color, Color.TRANSPARENT);
+                final int strokeWidth = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.width);
+                final float dashWidth = DrawableUtils.getAttrDimension(context, attrs, android.R.attr.dashWidth);
                 if (dashWidth != 0.0f) {
-                    final float dashGap = getAttrDimension(context, attrs, android.R.attr.dashGap);
+                    final float dashGap = DrawableUtils.getAttrDimension(context, attrs, android.R.attr.dashGap);
                     gradientDrawable.setStroke(strokeWidth, getAlphaColor(strokeColor, alphaMod), dashWidth, dashGap);
                 } else {
                     gradientDrawable.setStroke(strokeWidth, getAlphaColor(strokeColor, alphaMod));
                 }
             } else if (name.equals("corners")) {
-                final int radius = getAttrDimensionPixelSize(context, attrs, android.R.attr.radius);
+                final int radius = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.radius);
                 gradientDrawable.setCornerRadius(radius);
 
-                final int topLeftRadius = getAttrDimensionPixelSize(context, attrs, android.R.attr.topLeftRadius, radius);
-                final int topRightRadius = getAttrDimensionPixelSize(context, attrs, android.R.attr.topRightRadius, radius);
-                final int bottomLeftRadius = getAttrDimensionPixelSize(context, attrs, android.R.attr.bottomLeftRadius, radius);
-                final int bottomRightRadius = getAttrDimensionPixelSize(context, attrs, android.R.attr.bottomRightRadius, radius);
+                final int topLeftRadius = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.topLeftRadius, radius);
+                final int topRightRadius = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.topRightRadius, radius);
+                final int bottomLeftRadius = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.bottomLeftRadius, radius);
+                final int bottomRightRadius = DrawableUtils.getAttrDimensionPixelSize(context, attrs, android.R.attr.bottomRightRadius, radius);
                 if (topLeftRadius != radius || topRightRadius != radius ||
                         bottomLeftRadius != radius || bottomRightRadius != radius) {
                     // The corner radii are specified in clockwise order (see Path.addRoundRect())
@@ -161,10 +161,10 @@ public class GradientDrawableUtils extends DrawableUtils {
                     });
                 }
             } else if (name.equals("padding")) {
-                final int paddingLeft = getAttrDimensionPixelOffset(context, attrs, android.R.attr.left);
-                final int paddingTop = getAttrDimensionPixelOffset(context, attrs, android.R.attr.top);
-                final int paddingRight = getAttrDimensionPixelOffset(context, attrs, android.R.attr.right);
-                final int paddingBottom = getAttrDimensionPixelOffset(context, attrs, android.R.attr.bottom);
+                final int paddingLeft = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, android.R.attr.left);
+                final int paddingTop = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, android.R.attr.top);
+                final int paddingRight = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, android.R.attr.right);
+                final int paddingBottom = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, android.R.attr.bottom);
                 if (paddingLeft != 0 || paddingTop != 0 || paddingRight != 0 || paddingBottom != 0) {
                     final Rect pad = new Rect();
                     pad.set(paddingLeft, paddingTop, paddingRight, paddingBottom);
@@ -195,14 +195,14 @@ public class GradientDrawableUtils extends DrawableUtils {
     }
 
     void inflateGradientRootElement(Context context, AttributeSet attrs, GradientDrawable gradientDrawable) {
-        int shape = getAttrInt(context, attrs, android.R.attr.shape, GradientDrawable.RECTANGLE);
+        int shape = DrawableUtils.getAttrInt(context, attrs, android.R.attr.shape, GradientDrawable.RECTANGLE);
         gradientDrawable.setShape(shape);
-        boolean dither = getAttrBoolean(context, attrs, android.R.attr.dither, false);
+        boolean dither = DrawableUtils.getAttrBoolean(context, attrs, android.R.attr.dither, false);
         gradientDrawable.setDither(dither);
     }
 
     void setGradientRadius(Context context, AttributeSet attrs, GradientDrawable drawable, int gradientType) throws XmlPullParserException {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{android.R.attr.gradientRadius});
+        TypedArray a = DrawableUtils.obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{android.R.attr.gradientRadius});
         TypedValue value = a.peekValue(0);
         if (value != null) {
             boolean radiusRel = value.type == TypedValue.TYPE_FRACTION;
@@ -248,7 +248,7 @@ public class GradientDrawableUtils extends DrawableUtils {
     }
 
     float getAttrFloatOrFraction(Context context, AttributeSet attrs, int attr, float defaultValue, float base, float pbase) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        TypedArray a = DrawableUtils.obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         TypedValue tv = a.peekValue(0);
         float v = defaultValue;
         if (tv != null) {

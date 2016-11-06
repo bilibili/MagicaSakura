@@ -36,10 +36,10 @@ import java.util.ArrayList;
  * @author xyczero617@gmail.com
  * @time 16/2/22
  */
-public class StateListDrawableUtils extends DrawableUtils {
+class StateListDrawableInflateImpl implements DrawableInflateDelegate {
 
     @Override
-    protected Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
+    public Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
         StateListDrawable sd = null;
         ArrayList<int[]> states = new ArrayList<>();
         ArrayList<Drawable> drawables = new ArrayList<>();
@@ -59,9 +59,9 @@ public class StateListDrawableUtils extends DrawableUtils {
                 continue;
             }
 
-            Drawable dr = getAttrDrawable(context, attrs, android.R.attr.drawable);
+            Drawable dr = DrawableUtils.getAttrDrawable(context, attrs, android.R.attr.drawable);
 
-            states.add(extractStateSet(attrs));
+            states.add(DrawableUtils.extractStateSet(attrs));
 
             // Loading child elements modifies the state of the AttributeSet's
             // underlying parser, so it needs to happen after obtaining
@@ -75,9 +75,9 @@ public class StateListDrawableUtils extends DrawableUtils {
                                     + ": <item> tag requires a 'drawable' attribute or "
                                     + "child tag defining a drawable");
                 }
-                dr = createFromXmlInner(context, parser, attrs);
+                dr = DrawableUtils.createFromXmlInner(context, parser, attrs);
             } else {
-                ColorFilter colorFilter = getAttrColorFilter(context, attrs, R.attr.drawableTint, R.attr.drawableTintMode);
+                ColorFilter colorFilter = DrawableUtils.getAttrColorFilter(context, attrs, R.attr.drawableTint, R.attr.drawableTintMode);
                 if (colorFilter != null) {
                     if (mColorFilterMap == null) {
                         mColorFilterMap = new SparseArray<>();

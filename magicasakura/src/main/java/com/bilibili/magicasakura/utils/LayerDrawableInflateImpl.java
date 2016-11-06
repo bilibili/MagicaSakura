@@ -33,7 +33,7 @@ import java.io.IOException;
  * @author xyczero617@gmail.com
  * @time 16/3/17
  */
-public class LayerDrawableUtils extends DrawableUtils {
+class LayerDrawableInflateImpl implements DrawableInflateDelegate {
     private static final int STEP = 1;
 
     private static final int[] ATTRS = new int[]{
@@ -41,7 +41,7 @@ public class LayerDrawableUtils extends DrawableUtils {
             android.R.attr.bottom, android.R.attr.id};
 
     @Override
-    protected Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
+    public Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
         final int innerDepth = parser.getDepth() + 1;
         int type;
         int depth;
@@ -70,7 +70,7 @@ public class LayerDrawableUtils extends DrawableUtils {
             updateLayerAttrs(context, attrs, childLayersAttrs[layerAttrUseCount]);
             layerAttrUseCount++;
 
-            Drawable drawable = getAttrDrawable(context, attrs, android.R.attr.drawable);
+            Drawable drawable = DrawableUtils.getAttrDrawable(context, attrs, android.R.attr.drawable);
 
             // If the layer doesn't have a drawable or unresolved theme
             // attribute for a drawable, attempt to parse one from the child
@@ -83,11 +83,11 @@ public class LayerDrawableUtils extends DrawableUtils {
                             + ": <item> tag requires a 'drawable' attribute or "
                             + "child tag defining a drawable");
                 }
-                drawable = createFromXmlInner(context, parser, attrs);
+                drawable = DrawableUtils.createFromXmlInner(context, parser, attrs);
             } else {
-                final ColorStateList cls = getTintColorList(context, attrs, R.attr.drawableTint);
+                final ColorStateList cls = DrawableUtils.getTintColorList(context, attrs, R.attr.drawableTint);
                 if (cls != null) {
-                    drawable = ThemeUtils.tintDrawable(drawable, cls, getTintMode(context, attrs, R.attr.drawableTintMode));
+                    drawable = ThemeUtils.tintDrawable(drawable, cls, DrawableUtils.getTintMode(context, attrs, R.attr.drawableTintMode));
                 }
             }
 
@@ -120,10 +120,10 @@ public class LayerDrawableUtils extends DrawableUtils {
     }
 
     void updateLayerAttrs(Context context, AttributeSet attrs, int[] childLayersAttrs) {
-        childLayersAttrs[0] = getAttrDimensionPixelOffset(context, attrs, ATTRS[0]);
-        childLayersAttrs[1] = getAttrDimensionPixelOffset(context, attrs, ATTRS[1]);
-        childLayersAttrs[2] = getAttrDimensionPixelOffset(context, attrs, ATTRS[2]);
-        childLayersAttrs[3] = getAttrDimensionPixelOffset(context, attrs, ATTRS[3]);
-        childLayersAttrs[4] = getAttrResourceId(context, attrs, ATTRS[4], 0);
+        childLayersAttrs[0] = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, ATTRS[0]);
+        childLayersAttrs[1] = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, ATTRS[1]);
+        childLayersAttrs[2] = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, ATTRS[2]);
+        childLayersAttrs[3] = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, ATTRS[3]);
+        childLayersAttrs[4] = DrawableUtils.getAttrResourceId(context, attrs, ATTRS[4], 0);
     }
 }
