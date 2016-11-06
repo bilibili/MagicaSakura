@@ -98,6 +98,9 @@ public class DrawableUtils {
             case "layer-list":
                 delegate = new LayerDrawableInflateImpl();
                 break;
+            case "ripple":
+                delegate = new RippleDrawableInflateImpl();
+                break;
             default:
                 delegate = null;
         }

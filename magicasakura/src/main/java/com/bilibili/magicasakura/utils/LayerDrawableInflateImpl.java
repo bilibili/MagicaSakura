@@ -34,9 +34,9 @@ import java.io.IOException;
  * @time 16/3/17
  */
 class LayerDrawableInflateImpl implements DrawableInflateDelegate {
-    private static final int STEP = 1;
+    static final int STEP = 1;
 
-    private static final int[] ATTRS = new int[]{
+    static final int[] ATTRS = new int[]{
             android.R.attr.left, android.R.attr.top, android.R.attr.right,
             android.R.attr.bottom, android.R.attr.id};
 
