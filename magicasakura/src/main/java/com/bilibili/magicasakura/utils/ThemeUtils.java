@@ -235,7 +235,7 @@ public class ThemeUtils {
     public static boolean isSkipAnimatedSelector() {
         if (!hasRecordedVersion) {
             final String sdkVersion = Build.VERSION.RELEASE;
-            isSkipAnimatedSelector = !Build.UNKNOWN.equals(sdkVersion) && "5.0".compareTo(sdkVersion) <= 0 && "5.1".compareTo(sdkVersion) >0;
+            isSkipAnimatedSelector = !Build.UNKNOWN.equals(sdkVersion) && "5.0".compareTo(sdkVersion) <= 0 && "5.1".compareTo(sdkVersion) > 0;
             hasRecordedVersion = true;
         }
         return isSkipAnimatedSelector;
@@ -417,8 +417,10 @@ public class ThemeUtils {
         }
     }
 
-    private static Field mRecycler;
-    private static Method mClearMethod;
+    private static Field sRecycler;
+    private static Method sRecycleViewClearMethod;
+    private static Field sRecyclerBin;
+    private static Method sListViewClearMethod;
 
     private static void refreshView(View view, ExtraRefreshable extraRefreshable) {
         if (view == null) return;
@@ -436,6 +438,28 @@ public class ThemeUtils {
                 extraRefreshable.refreshSpecificView(view);
             }
             if (view instanceof AbsListView) {
+                try {
+                    if (sRecyclerBin == null) {
+                        sRecyclerBin = AbsListView.class.getDeclaredField("mRecycler");
+                        sRecyclerBin.setAccessible(true);
+                    }
+                    if (sListViewClearMethod == null) {
+                        sListViewClearMethod = Class.forName("android.widget.AbsListView$RecycleBin")
+                                .getDeclaredMethod("clear");
+                        sListViewClearMethod.setAccessible(true);
+                    }
+                    sListViewClearMethod.invoke(sRecyclerBin.get(view));
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
                 ListAdapter adapter = ((AbsListView) view).getAdapter();
                 while (adapter instanceof WrapperListAdapter) {
                     adapter = ((WrapperListAdapter) adapter).getWrappedAdapter();
@@ -446,16 +470,16 @@ public class ThemeUtils {
             }
             if (view instanceof RecyclerView) {
                 try {
-                    if (mRecycler == null) {
-                        mRecycler = RecyclerView.class.getDeclaredField("mRecycler");
-                        mRecycler.setAccessible(true);
+                    if (sRecycler == null) {
+                        sRecycler = RecyclerView.class.getDeclaredField("mRecycler");
+                        sRecycler.setAccessible(true);
                     }
-                    if (mClearMethod == null) {
-                        mClearMethod = Class.forName("android.support.v7.widget.RecyclerView$Recycler")
+                    if (sRecycleViewClearMethod == null) {
+                        sRecycleViewClearMethod = Class.forName("android.support.v7.widget.RecyclerView$Recycler")
                                 .getDeclaredMethod("clear");
-                        mClearMethod.setAccessible(true);
+                        sRecycleViewClearMethod.setAccessible(true);
                     }
-                    mClearMethod.invoke(mRecycler.get(view));
+                    sRecycleViewClearMethod.invoke(sRecycler.get(view));
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
