@@ -177,7 +177,6 @@ public class TintTextView extends TextView implements Tintable, AppCompatBackgro
         }
     }
 
-
     @Override
     public void tint() {
         if (mTextHelper != null) {
