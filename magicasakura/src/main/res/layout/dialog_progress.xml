@@ -32,7 +32,7 @@
         android:paddingTop="10dp">
 
         <com.bilibili.magicasakura.widgets.TintProgressBar
-            android:id="@android:id/progress"
+            android:id="@+id/progress"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
