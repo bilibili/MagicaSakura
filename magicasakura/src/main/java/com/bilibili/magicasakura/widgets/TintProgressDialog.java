@@ -181,18 +181,20 @@ public class TintProgressDialog extends AlertDialog implements Handler.Callback 
         int max = mProgress.getMax();
         if (mProgressNumberFormat != null) {
             String format = mProgressNumberFormat;
+            mProgressNumber.setVisibility(View.VISIBLE);
             mProgressNumber.setText(String.format(format, progress, max));
         } else {
-            mProgressNumber.setText("");
+            mProgressNumber.setVisibility(View.GONE);
         }
         if (mProgressPercentFormat != null) {
             double percent = (double) progress / (double) max;
             SpannableString tmp = new SpannableString(mProgressPercentFormat.format(percent));
             tmp.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),
                     0, tmp.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            mProgressPercent.setVisibility(View.VISIBLE);
             mProgressPercent.setText(tmp);
         } else {
-            mProgressPercent.setText("");
+            mProgressPercent.setVisibility(View.GONE);
         }
         return true;
     }
