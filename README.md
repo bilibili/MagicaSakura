@@ -4,7 +4,7 @@
 
 MagicaSakura is an Android multi theme library which supporting both daily colorful theme and night theme.
 
-##Feature
+## Feature
 
 >1. Support both the daily colorful theme and the night theme.
 
@@ -18,7 +18,7 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 >6. Easy to integrate to your app. 
 
-##Demo
+## Demo
 
 ![ScreenShot.gif](https://github.com/xyczero/MagicaSakura/blob/master/screenshot/magicasakura.gif)
  
@@ -27,12 +27,12 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 <a href="https://play.google.com/store/apps/details?id=com.bilibili.magicasakurademo"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" height="60" data-canonical-src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" style="max-width:100%;"></a>
  
 
-##Gradle Dependency
+## Gradle Dependency
 ```
 compile 'com.bilibili:magicasakura:0.1.5@aar'
 ```
 
-##Maven Dependency
+## Maven Dependency
 ```
 <dependency>
   <groupId>com.bilibili</groupId>
@@ -42,7 +42,7 @@ compile 'com.bilibili:magicasakura:0.1.5@aar'
 </dependency>
 ```
 
-##Usage
+## Usage
  
   
  - **STEP1** : 
@@ -241,10 +241,10 @@ compile 'com.bilibili:magicasakura:0.1.5@aar'
   
   About to switch night theme, when the version of your android support library is below 23.2.0, you can call the method of ThemeUtils.updateNightMode to switch in the night and daily theme, and when the version is above 23.2.0, you can use android native method in android support library.
 
-##Download
+## Download
 [Demo Download here](http://7xr9x5.com1.z0.glb.clouddn.com/magicasrkura_sample-debug.apk)
 
-##License
+## License
 
 Copyright 2016 Bilibili
 
