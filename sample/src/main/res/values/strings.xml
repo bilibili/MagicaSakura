@@ -3,9 +3,8 @@
 
     <string name="cancel">cancel</string>
     <string name="confirm">ok</string>
-    <string name="textview_title_unlock">Unlock it</string>
-    <string name="textview_title_lock">Lock it</string>
-    <string name="textview_click_before">Unlock it to open the door of the new world !</string>
+    <string name="textview_title_unlock">Lock Setting</string>
+    <string name="textview_click_before">You can unlock it to open the new world !</string>
     <string name="textview_click_after">Go to : https://github.com/Bilibili/MagicaSakura</string>
 
     <string name="magicasrkura_prompt_0">隐藏着黑暗力量的钥匙啊，在我面前显示你真正的力量，小樱命令你，封印解除！</string>

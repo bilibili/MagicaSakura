@@ -26,6 +26,7 @@ import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -38,6 +39,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
@@ -107,7 +109,8 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ThemeUtils.getColorById(this, R.color.theme_color_primary_dark));
-            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(this, android.R.attr.colorPrimary));
+            ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(null, null,
+                    ThemeUtils.getThemeAttrColor(this, android.R.attr.colorPrimary));
             setTaskDescription(description);
         }
     }
@@ -139,9 +142,12 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
                             //for global setting, just do once
                             if (Build.VERSION.SDK_INT >= 21) {
                                 final MainActivity context = MainActivity.this;
-                                ActivityManager.TaskDescription taskDescription = new ActivityManager.TaskDescription(null, null, ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
+                                ActivityManager.TaskDescription taskDescription =
+                                        new ActivityManager.TaskDescription(null, null,
+                                                ThemeUtils.getThemeAttrColor(context, android.R.attr.colorPrimary));
                                 setTaskDescription(taskDescription);
-                                getWindow().setStatusBarColor(ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
+                                getWindow().setStatusBarColor(
+                                        ThemeUtils.getColorById(context, R.color.theme_color_primary_dark));
                             }
                         }
 
@@ -163,10 +169,11 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         }
     }
 
-    private String getSnackContent(int current){
+    private String getSnackContent(int current) {
         Random random = new Random();
         random.setSeed(System.currentTimeMillis());
-        return getResources().getString(getResources().getIdentifier("magicasrkura_prompt_" + random.nextInt(3), "string", getPackageName())) + ThemeHelper.getName(current);
+        return getResources().getString(getResources().getIdentifier(
+                "magicasrkura_prompt_" + random.nextInt(3), "string", getPackageName())) + ThemeHelper.getName(current);
     }
 
     public static class Adapter extends RecyclerView.Adapter<ViewHolder> {
@@ -245,37 +252,40 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
 
         public void setTitle(int index) {
             title.setText(sTitles[index - 1]);
-            icon.setImageResource(itemView.getResources().getIdentifier("ic_looks_" + index, "drawable", itemView.getContext().getPackageName()));
+            icon.setImageResource(itemView.getResources().getIdentifier(
+                    "ic_looks_" + index, "drawable", itemView.getContext().getPackageName()));
             icon.setImageTintList(R.color.theme_color_primary);
         }
 
         public static ViewHolderHeader create(ViewGroup parent) {
-            return new ViewHolderHeader(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_item_header, parent, false));
+            return new ViewHolderHeader(LayoutInflater.from(
+                    parent.getContext()).inflate(R.layout.layout_list_item_header, parent, false));
         }
     }
 
     public static class ViewHolderLabel extends ViewHolder {
         TextView title;
         TextView content;
+        SwitchCompat switchCompat;
 
         public ViewHolderLabel(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
             content = (TextView) itemView.findViewById(R.id.prompt);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            switchCompat = (SwitchCompat) itemView.findViewById(R.id.switch_button);
+            switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onClick(View v) {
-                    boolean isSelected = v.getTag() != null && (boolean) v.getTag();
-                    v.setTag(!isSelected);
-                    title.setText(isSelected ? R.string.textview_title_unlock : R.string.textview_title_lock);
-                    title.setCompoundDrawablesWithIntrinsicBounds(0, 0, isSelected ? R.drawable.selector_lock : R.drawable.selector_unlock, 0);
-                    content.setText(isSelected ? R.string.textview_click_before : R.string.textview_click_after);
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    title.setCompoundDrawablesWithIntrinsicBounds(
+                            !isChecked ? R.drawable.selector_lock : R.drawable.selector_unlock, 0, 0, 0);
+                    content.setText(!isChecked ? R.string.textview_click_before : R.string.textview_click_after);
                 }
             });
         }
 
         public static ViewHolderLabel create(ViewGroup parent) {
-            return new ViewHolderLabel(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_item_label, parent, false));
+            return new ViewHolderLabel(LayoutInflater.from(
+                    parent.getContext()).inflate(R.layout.layout_list_item_label, parent, false));
         }
     }
 
@@ -325,7 +335,8 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         }
 
         public static ViewHolderLogin create(ViewGroup parent) {
-            return new ViewHolderLogin(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_item_login, parent, false));
+            return new ViewHolderLogin(LayoutInflater.from(
+                    parent.getContext()).inflate(R.layout.layout_list_item_login, parent, false));
         }
     }
 
@@ -342,7 +353,8 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
                 public void onClick(View v) {
                     Activity activity = ThemeUtils.getWrapperActivity(v.getContext());
                     if (activity instanceof AppCompatActivity) {
-                        new ProgressStyleDialog().show(((AppCompatActivity) activity).getSupportFragmentManager(), ProgressStyleDialog.TAG);
+                        new ProgressStyleDialog().show(
+                                ((AppCompatActivity) activity).getSupportFragmentManager(), ProgressStyleDialog.TAG);
                     }
                 }
             });
@@ -352,14 +364,16 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
                 public void onClick(View v) {
                     Activity activity = ThemeUtils.getWrapperActivity(v.getContext());
                     if (activity instanceof AppCompatActivity) {
-                        new ProgressCheckDialog().show(((AppCompatActivity) activity).getSupportFragmentManager(), ProgressCheckDialog.TAG);
+                        new ProgressCheckDialog().show(
+                                ((AppCompatActivity) activity).getSupportFragmentManager(), ProgressCheckDialog.TAG);
                     }
                 }
             });
         }
 
         public static ViewHolderChoice create(ViewGroup parent) {
-            return new ViewHolderChoice(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_list_item_choice, parent, false));
+            return new ViewHolderChoice(LayoutInflater.from(
+                    parent.getContext()).inflate(R.layout.layout_list_item_choice, parent, false));
         }
     }
 }

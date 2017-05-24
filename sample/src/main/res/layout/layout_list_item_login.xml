@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Bilibili
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +21,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_card_background"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
     android:padding="@dimen/padding_half">
 
@@ -33,8 +34,8 @@
         android:drawableLeft="@drawable/ic_person_outline_white_24dp"
         android:drawablePadding="@dimen/padding_half"
         android:hint="input username"
+        android:maxLines="1"
         android:padding="@dimen/padding_half"
-        android:singleLine="true"
         android:textCursorDrawable="@drawable/edittext_cursor"
         android:textSize="13sp"
         app:backgroundTint="@color/selector_focus"
@@ -50,8 +51,8 @@
         android:drawablePadding="@dimen/padding_half"
         android:hint="input password"
         android:inputType="textPassword"
+        android:maxLines="1"
         android:padding="@dimen/padding_half"
-        android:singleLine="true"
         android:textCursorDrawable="@drawable/edittext_cursor"
         android:textSize="13sp"
         app:backgroundTint="@color/selector_focus"

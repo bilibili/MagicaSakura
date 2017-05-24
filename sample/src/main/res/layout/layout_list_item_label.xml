@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Bilibili
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +15,8 @@
   ~
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_card_background"
@@ -27,8 +27,9 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableLeft="@drawable/selector_lock"
         android:drawablePadding="@dimen/padding_half"
-        android:drawableRight="@drawable/selector_lock"
         android:gravity="center_vertical"
         android:padding="@dimen/padding_half"
         android:text="@string/textview_title_unlock"
@@ -39,6 +40,7 @@
         android:id="@+id/prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/title"
         android:autoLink="all"
         android:gravity="center_vertical"
         android:padding="@dimen/padding_half"
@@ -47,4 +49,15 @@
         android:textColorHighlight="@color/gray_light"
         android:textColorLink="@color/theme_color_primary"
         android:textSize="@dimen/textsize_small" />
-</LinearLayout>
+
+    <com.bilibili.magicasakura.widgets.TintSwitchCompat
+        android:id="@+id/switch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/title"
+        android:layout_alignParentRight="true"
+        app:thumbTint="@color/selector_switch_thumb"
+        app:thumbTintMode="multiply"
+        app:trackTint="@color/selector_switch_track"
+        app:trackTintMode="src_in" />
+</RelativeLayout>

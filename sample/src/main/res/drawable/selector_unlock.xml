@@ -17,6 +17,6 @@
   -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:drawable="@drawable/ic_lock_white_24dp" android:state_pressed="true" app:drawableTint="@color/theme_color_primary" />
-    <item android:drawable="@drawable/ic_lock_open_white_24dp" app:drawableTint="@color/gray_dark" />
+    <item android:drawable="@drawable/ic_lock_white_24dp" android:state_pressed="true" app:drawableTint="@color/gray_dark" />
+    <item android:drawable="@drawable/ic_lock_open_white_24dp" app:drawableTint="@color/theme_color_primary" />
 </selector>

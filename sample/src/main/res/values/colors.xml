@@ -13,6 +13,7 @@
     <color name="white">#ffffff</color>
     <color name="white_trans">#99ffffff</color>
 
+    <color name="gray">#bbbbbb</color>
     <color name="gray_dark">#999999</color>
     <color name="gray_trans">#44999999</color>
     <color name="gray_light">#dcdcdc</color>

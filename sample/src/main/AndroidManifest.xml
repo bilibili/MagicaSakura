@@ -11,7 +11,8 @@
         android:name="com.bilibili.magicasakurademo.MyApplication">
         <activity
             android:name="com.bilibili.magicasakurademo.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
