@@ -29,4 +29,6 @@ ext {
     compileSdkVersion = 24
     minSdkVersion = 15
     supportVersion = '25.0.1'
+    constraintVersion = '1.0.2'
 }
+

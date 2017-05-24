@@ -98,5 +98,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
     compile "com.android.support:design:${rootProject.ext.supportVersion}"
     compile "com.android.support:gridlayout-v7:${rootProject.ext.supportVersion}"
+    compile "com.android.support.constraint:constraint-layout:${rootProject.ext.constraintVersion}"
 
 }
