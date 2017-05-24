@@ -29,7 +29,7 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 ## Gradle Dependency
 ```
-compile 'com.bilibili:magicasakura:0.1.5@aar'
+compile 'com.bilibili:magicasakura:0.1.6@aar'
 ```
 
 ## Maven Dependency
@@ -37,7 +37,7 @@ compile 'com.bilibili:magicasakura:0.1.5@aar'
 <dependency>
   <groupId>com.bilibili</groupId>
   <artifactId>magicasakura</artifactId>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <type>aar</type>
 </dependency>
 ```
@@ -186,8 +186,9 @@ compile 'com.bilibili:magicasakura:0.1.5@aar'
     | button     | compoundButtonTint    |  compoundButtonTintMode  |
     | drawableXxx     | drawableXxxTint    |  drawableXxxTintMode  |
     | progress     | progressTint,progressIndeterminateTint    |    |
-    
-  
+    | track     | trackTint    |  trackTintMode  |
+    | thumb     | thumbTint    |  thumbTintMode  |
+
   - Java code
     TintXXX widgets can also be tinted in java code. The way of tinting drawable is the same as android native methods.
     
@@ -242,7 +243,7 @@ compile 'com.bilibili:magicasakura:0.1.5@aar'
   About to switch night theme, when the version of your android support library is below 23.2.0, you can call the method of ThemeUtils.updateNightMode to switch in the night and daily theme, and when the version is above 23.2.0, you can use android native method in android support library.
 
 ## Download
-[Demo Download here](http://7xr9x5.com1.z0.glb.clouddn.com/magicasrkura_sample-debug.apk)
+[Demo Download here](http://7xr9x5.com1.z0.glb.clouddn.com/magicasrkura_sample-release.apk)
 
 ## License
 
