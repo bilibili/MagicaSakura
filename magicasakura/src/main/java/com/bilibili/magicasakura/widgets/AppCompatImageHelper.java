@@ -37,6 +37,7 @@ import com.bilibili.magicasakura.utils.TintManager;
 public class AppCompatImageHelper extends AppCompatBaseHelper {
     public static final int[] ATTRS = {
             android.R.attr.src,
+            R.attr.srcCompat,
             R.attr.imageTint,
             R.attr.imageTintMode
     };
@@ -53,16 +54,22 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
     @Override
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, ATTRS, defStyleAttr, 0);
-        if (array.hasValue(1)) {
-            mImageTintResId = array.getResourceId(1, 0);
-            if (array.hasValue(2)) {
-                setSupportImageTintMode(DrawableUtils.parseTintMode(array.getInt(2, 0), null));
+        Drawable image = mTintManager.getDrawable(mImageResId = array.getResourceId(1, 0));
+        if (image != null) {
+            setImageDrawable(image);
+        }
+        if (array.hasValue(2)) {
+            mImageTintResId = array.getResourceId(2, 0);
+            if (array.hasValue(3)) {
+                setSupportImageTintMode(DrawableUtils.parseTintMode(array.getInt(3, 0), null));
             }
             setSupportImageTint(mImageTintResId);
         } else {
-            Drawable image = mTintManager.getDrawable(mImageResId = array.getResourceId(0, 0));
-            if (image != null) {
-                setImageDrawable(image);
+            if (image == null) {
+                image = mTintManager.getDrawable(mImageResId = array.getResourceId(0, 0));
+                if (image != null) {
+                    setImageDrawable(image);
+                }
             }
         }
         array.recycle();

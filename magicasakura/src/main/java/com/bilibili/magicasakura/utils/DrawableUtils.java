@@ -72,7 +72,7 @@ public class DrawableUtils {
                         throw new XmlPullParserException("No start tag found");
                     }
 
-                    dr = createFromXmlInner(context, rp, attrs);
+                    dr = createFromXmlInner(context, rp, attrs, resId);
                     rp.close();
                 }
             } catch (IOException e) {
@@ -85,6 +85,10 @@ public class DrawableUtils {
     }
 
     static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
+        return createFromXmlInner(context, parser, attrs, 0);
+    }
+
+    static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs, int resId) throws IOException, XmlPullParserException {
         final DrawableInflateDelegate delegate;
 
         final String name = parser.getName();
@@ -100,6 +104,9 @@ public class DrawableUtils {
                 break;
             case "ripple":
                 delegate = new RippleDrawableInflateImpl();
+                break;
+            case "vector":
+                delegate = new VectorDrawableInflateImpl(resId);
                 break;
             default:
                 delegate = null;

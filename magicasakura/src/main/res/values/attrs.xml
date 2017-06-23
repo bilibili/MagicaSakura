@@ -32,6 +32,7 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
+        <attr name="srcCompat" format="reference"/>
         <attr name="imageTint" format="color" />
         <attr name="imageTintMode">
             <enum name="src_over" value="3" />
@@ -124,6 +125,7 @@
     </declare-styleable>
 
     <declare-styleable name="TintImageView">
+        <attr name="srcCompat"/>
         <attr name="backgroundTint" />
         <attr name="backgroundTintMode" />
         <attr name="imageTint" />
