@@ -515,11 +515,11 @@ public class ThemeUtils {
     }
 
     static @ColorInt int replaceColorById(Context context, @ColorRes int colorId) {
-        return mSwitchColor == null ? Color.TRANSPARENT : mSwitchColor.replaceColorById(context, colorId);
+        return mSwitchColor == null ? context.getResources().getColor(colorId) : mSwitchColor.replaceColorById(context, colorId);
     }
 
     static @ColorInt int replaceColor(Context context, @ColorInt int color) {
-        return mSwitchColor == null ? Color.TRANSPARENT : mSwitchColor.replaceColor(context, color);
+        return mSwitchColor == null ? color : mSwitchColor.replaceColor(context, color);
     }
 
     public interface switchColor {
