@@ -16,7 +16,9 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 >5. Offer backward-compatible versions of the Android system that can be used with 4.0.3 or higher.
 
->6. Easy to integrate to your app. 
+>6. Support Vector Drawable with appcompat-v7.
+
+>7. Easy to integrate to your app.
 
 ## Demo
 
@@ -29,7 +31,7 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 ## Gradle Dependency
 ```
-compile 'com.bilibili:magicasakura:0.1.6@aar'
+compile 'com.bilibili:magicasakura:0.1.7@aar'
 ```
 
 ## Maven Dependency
@@ -37,7 +39,7 @@ compile 'com.bilibili:magicasakura:0.1.6@aar'
 <dependency>
   <groupId>com.bilibili</groupId>
   <artifactId>magicasakura</artifactId>
-  <version>0.1.6</version>
+  <version>0.1.7</version>
   <type>aar</type>
 </dependency>
 ```
