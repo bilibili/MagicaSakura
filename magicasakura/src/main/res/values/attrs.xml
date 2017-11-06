@@ -20,10 +20,17 @@
     <!-- main theme color -->
     <attr name="themeColorSecondary" format="color" />
 
-    <declare-styleable name="TintDrawableHelper">
+    <!-- ==================== helper style ==================== -->
+
+    <declare-styleable name="TintViewBackgroundHelper">
         <!-- support tint background color -->
+        <attr name="android:background"/>
         <attr name="backgroundTint" />
         <attr name="backgroundTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintViewForegroundHelper">
+        <attr name="android:foreground"/>
         <attr name="foregroundTint" format="color" />
         <attr name="foregroundTintMode">
             <enum name="src_over" value="3" />
@@ -32,6 +39,22 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TintCompoundButtonHelper">
+        <attr name="android:button"/>
+        <attr name="compoundButtonTint" format="color" />
+        <attr name="compoundButtonTintMode">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TintImageHelper">
+        <attr name="android:src" />
         <attr name="srcCompat" format="reference"/>
         <attr name="imageTint" format="color" />
         <attr name="imageTintMode">
@@ -41,6 +64,10 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TintCompoundDrawableHelper">
+        <attr name="android:drawableLeft" />
         <attr name="drawableLeftTint" format="color" />
         <attr name="drawableLeftTintMode">
             <enum name="src_over" value="3" />
@@ -49,6 +76,7 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
+        <attr name="android:drawableTop" />
         <attr name="drawableTopTint" format="color" />
         <attr name="drawableTopTintMode">
             <enum name="src_over" value="3" />
@@ -57,6 +85,7 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
+        <attr name="android:drawableRight" />
         <attr name="drawableRightTint" format="color" />
         <attr name="drawableRightTintMode">
             <enum name="src_over" value="3" />
@@ -65,6 +94,7 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
+        <attr name="android:drawableBottom" />
         <attr name="drawableBottomTint" format="color" />
         <attr name="drawableBottomTintMode">
             <enum name="src_over" value="3" />
@@ -73,14 +103,32 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
-        <attr name="compoundButtonTint" format="color" />
-        <attr name="compoundButtonTintMode">
-            <enum name="src_over" value="3" />
-            <enum name="src_in" value="5" />
-            <enum name="src_atop" value="9" />
-            <enum name="multiply" value="14" />
-            <enum name="screen" value="15" />
-        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TintProgressBarHelper">
+        <attr name="progressTint" format="color" />
+        <attr name="progressIndeterminateTint" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TintTextHelper">
+        <attr name="android:textColor"/>
+        <attr name="android:textColorLink"/>
+        <attr name="android:textAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="TintSwitchThumb">
+        <attr name="android:thumb" />
+        <attr name="thumbTint" />
+        <attr name="thumbTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintSwitchTrack">
+        <attr name="track" />
+        <attr name="trackTint" />
+        <attr name="trackTintMode" />
+    </declare-styleable>
+
+    <declare-styleable name="TintDrawableHelper">
         <attr name="drawableTint" format="color" />
         <attr name="drawableTintMode">
             <enum name="src_over" value="3" />
@@ -89,9 +137,9 @@
             <enum name="multiply" value="14" />
             <enum name="screen" value="15" />
         </attr>
-        <attr name="progressTint" format="color" />
-        <attr name="progressIndeterminateTint" format="color" />
     </declare-styleable>
+
+    <!-- ==================== widget style ==================== -->
 
     <declare-styleable name="TintTextView">
         <attr name="backgroundTint" />

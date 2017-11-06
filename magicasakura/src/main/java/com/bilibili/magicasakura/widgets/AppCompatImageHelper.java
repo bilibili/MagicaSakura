@@ -35,12 +35,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 15/11/15
  */
 public class AppCompatImageHelper extends AppCompatBaseHelper {
-    public static final int[] ATTRS = {
-            android.R.attr.src,
-            R.attr.srcCompat,
-            R.attr.imageTint,
-            R.attr.imageTintMode
-    };
 
     private TintInfo mImageTintInfo;
     private int mImageResId;
@@ -53,23 +47,24 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
     @SuppressWarnings("ResourceType")
     @Override
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
-        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, ATTRS, defStyleAttr, 0);
-        Drawable image = mTintManager.getDrawable(mImageResId = array.getResourceId(1, 0));
-        if (image != null) {
-            setImageDrawable(image);
+        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintImageHelper, defStyleAttr, 0);
+        // first resolve srcCompat due to not extending by AppCompatImageView
+        if (((ImageView) mView).getDrawable() == null) {
+            Drawable image = mTintManager.getDrawable(mImageResId = array.getResourceId(R.styleable.TintImageHelper_srcCompat, 0));
+            if (image != null) {
+                setImageDrawable(image);
+            }
         }
-        if (array.hasValue(2)) {
-            mImageTintResId = array.getResourceId(2, 0);
-            if (array.hasValue(3)) {
-                setSupportImageTintMode(DrawableUtils.parseTintMode(array.getInt(3, 0), null));
+        if (array.hasValue(R.styleable.TintImageHelper_imageTint)) {
+            mImageTintResId = array.getResourceId(R.styleable.TintImageHelper_imageTint, 0);
+            if (array.hasValue(R.styleable.TintImageHelper_imageTintMode)) {
+                setSupportImageTintMode(DrawableUtils.parseTintMode(array.getInt(R.styleable.TintImageHelper_imageTintMode, 0), null));
             }
             setSupportImageTint(mImageTintResId);
-        } else {
-            if (image == null) {
-                image = mTintManager.getDrawable(mImageResId = array.getResourceId(0, 0));
-                if (image != null) {
-                    setImageDrawable(image);
-                }
+        } else if (mImageResId == 0) {
+            Drawable image = mTintManager.getDrawable(mImageResId = array.getResourceId(R.styleable.TintImageHelper_android_src, 0));
+            if (image != null) {
+                setImageDrawable(image);
             }
         }
         array.recycle();

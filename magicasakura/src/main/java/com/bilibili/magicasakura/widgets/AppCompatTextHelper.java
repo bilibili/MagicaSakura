@@ -36,11 +36,6 @@ public class AppCompatTextHelper extends AppCompatBaseHelper {
     //If writing like this:
     //int[] ATTRS = { R.attr.tintText, android.R.attr.textColor, android.R.attr.textColorLink, ...};
     //we can't get textColor value when api is below 20;
-    private static final int[] ATTRS = {
-            android.R.attr.textColor,
-            android.R.attr.textColorLink,
-            android.R.attr.textAppearance,
-    };
 
     private int mTextColorId;
     private int mTextLinkColorId;
@@ -55,17 +50,17 @@ public class AppCompatTextHelper extends AppCompatBaseHelper {
     @SuppressWarnings("ResourceType")
     @Override
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
-        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, ATTRS, defStyleAttr, 0);
+        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintTextHelper , defStyleAttr, 0);
 
-        int textColorId = array.getResourceId(0, 0);
+        int textColorId = array.getResourceId(R.styleable.TintTextHelper_android_textColor, 0);
         if (textColorId == 0) {
-            setTextAppearanceForTextColor(array.getResourceId(2, 0), false);
+            setTextAppearanceForTextColor(array.getResourceId(R.styleable.TintTextHelper_android_textAppearance, 0), false);
         } else {
             setTextColor(textColorId);
         }
 
-        if (array.hasValue(1)) {
-            setLinkTextColor(array.getResourceId(1, 0));
+        if (array.hasValue(R.styleable.TintTextHelper_android_textColorLink)) {
+            setLinkTextColor(array.getResourceId(R.styleable.TintTextHelper_android_textColorLink, 0));
         }
         array.recycle();
     }

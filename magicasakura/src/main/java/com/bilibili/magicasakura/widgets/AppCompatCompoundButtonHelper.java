@@ -36,11 +36,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 15/11/23
  */
 public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper {
-    private static final int[] ATTRS = {
-            android.R.attr.button,
-            R.attr.compoundButtonTint,
-            R.attr.compoundButtonTintMode
-    };
 
     private TintInfo mCompoundButtonTintInfo;
     private int mCompoundButtonResId;
@@ -53,15 +48,15 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper {
     @SuppressWarnings("ResourceType")
     @Override
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
-        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, ATTRS, defStyleAttr, 0);
-        if (array.hasValue(1)) {
-            mCompoundButtonTintResId = array.getResourceId(1, 0);
-            if (array.hasValue(2)) {
-                setSupportButtonDrawableTintMode(DrawableUtils.parseTintMode(array.getInt(2, 0), null));
+        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintCompoundButtonHelper, defStyleAttr, 0);
+        if (array.hasValue(R.styleable.TintCompoundButtonHelper_compoundButtonTint)) {
+            mCompoundButtonTintResId = array.getResourceId(R.styleable.TintCompoundButtonHelper_compoundButtonTint, 0);
+            if (array.hasValue(R.styleable.TintCompoundButtonHelper_compoundButtonTintMode)) {
+                setSupportButtonDrawableTintMode(DrawableUtils.parseTintMode(array.getInt(R.styleable.TintCompoundButtonHelper_compoundButtonTintMode, 0), null));
             }
             setSupportButtonDrawableTint(mCompoundButtonTintResId);
         } else {
-            Drawable drawable = mTintManager.getDrawable(mCompoundButtonResId = array.getResourceId(0, 0));
+            Drawable drawable = mTintManager.getDrawable(mCompoundButtonResId = array.getResourceId(R.styleable.TintCompoundButtonHelper_android_button, 0));
             if (drawable != null) {
                 setButtonDrawable(drawable);
             }

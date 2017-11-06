@@ -48,7 +48,7 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
         }
         TintManager tintManager = TintManager.get(context);
         mThumbHelper = new AppCompatSwitchHelper(this, tintManager,
-                new int[]{android.R.attr.thumb, R.attr.thumbTint, R.attr.thumbTintMode},
+                R.styleable.TintSwitchThumb,
                 new AppCompatSwitchHelper.DrawableCallback() {
                     @Override
                     public void setDrawable(Drawable drawable) {
@@ -63,7 +63,7 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
         mThumbHelper.loadFromAttribute(attrs, defStyleAttr);
 
         mTrackHelper = new AppCompatSwitchHelper(this, tintManager,
-                new int[]{R.attr.track, R.attr.trackTint, R.attr.trackTintMode},
+                R.styleable.TintSwitchTrack,
                 new AppCompatSwitchHelper.DrawableCallback() {
                     @Override
                     public void setDrawable(Drawable drawable) {

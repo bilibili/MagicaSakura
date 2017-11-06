@@ -35,10 +35,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 16/2/4
  */
 public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
-    private static final int ATTR[] = new int[]{
-            R.attr.progressTint,
-            R.attr.progressIndeterminateTint
-    };
 
     private int mProgressTintResId;
     private int mIndeterminateTintResId;
@@ -53,14 +49,14 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
     @SuppressWarnings("ResourceType")
     @Override
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
-        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, ATTR, defStyleAttr, 0);
-        if (array.hasValue(0)) {
-            mProgressTintResId = array.getResourceId(0, 0);
-            setSupportProgressTint(array.getColorStateList(0));
+        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintProgressBarHelper, defStyleAttr, 0);
+        if (array.hasValue(R.styleable.TintProgressBarHelper_progressTint)) {
+            mProgressTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressTint, 0);
+            setSupportProgressTint(array.getColorStateList(R.styleable.TintProgressBarHelper_progressTint));
         }
-        if (array.hasValue(1)) {
-            mIndeterminateTintResId = array.getResourceId(1, 0);
-            setSupportIndeterminateTint(array.getColorStateList(1));
+        if (array.hasValue(R.styleable.TintProgressBarHelper_progressIndeterminateTint)) {
+            mIndeterminateTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressIndeterminateTint, 0);
+            setSupportIndeterminateTint(array.getColorStateList(R.styleable.TintProgressBarHelper_progressIndeterminateTint));
         }
         array.recycle();
     }
