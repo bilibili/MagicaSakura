@@ -16,17 +16,13 @@
 
 package com.bilibili.magicasakura.widgets;
 
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import com.bilibili.magicasakura.R;
-import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.utils.TintInfo;
 import com.bilibili.magicasakura.utils.TintManager;
 
@@ -51,34 +47,32 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgress
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintProgressBarHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintProgressBarHelper_progressTint)) {
-            mProgressTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressTint, 0);
-            setSupportProgressTint(array.getColorStateList(R.styleable.TintProgressBarHelper_progressTint));
+            setSupportProgressTint(mProgressTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressTint, 0));
         }
         if (array.hasValue(R.styleable.TintProgressBarHelper_progressIndeterminateTint)) {
-            mIndeterminateTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressIndeterminateTint, 0);
-            setSupportIndeterminateTint(array.getColorStateList(R.styleable.TintProgressBarHelper_progressIndeterminateTint));
+            setSupportIndeterminateTint(mIndeterminateTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressIndeterminateTint, 0));
         }
         array.recycle();
     }
 
-    private void setSupportProgressTint(ColorStateList tint) {
-        if (tint != null) {
+    private void setSupportProgressTint(int resId) {
+        if (resId != 0) {
             if (mProgressTintInfo == null) {
                 mProgressTintInfo = new TintInfo();
             }
             mProgressTintInfo.mHasTintList = true;
-            mProgressTintInfo.mTintList = ColorStateList.valueOf(ThemeUtils.getColor(mView.getContext(), tint.getDefaultColor()));
+            mProgressTintInfo.mTintList = mTintManager.getColorStateList(resId);
         }
         applySupportProgressTint();
     }
 
-    private void setSupportIndeterminateTint(ColorStateList tint) {
-        if (tint != null) {
+    private void setSupportIndeterminateTint(int resId) {
+        if (resId != 0) {
             if (mIndeterminateTintInfo == null) {
                 mIndeterminateTintInfo = new TintInfo();
             }
             mIndeterminateTintInfo.mHasTintList = true;
-            mIndeterminateTintInfo.mTintList = ColorStateList.valueOf(ThemeUtils.getColor(mView.getContext(), tint.getDefaultColor()));
+            mIndeterminateTintInfo.mTintList = mTintManager.getColorStateList(resId);
         }
         applySupportIndeterminateTint();
     }
@@ -137,10 +131,10 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgress
     @Override
     public void tint() {
         if (mProgressTintResId != 0) {
-            setSupportProgressTint(mView.getResources().getColorStateList(mProgressTintResId));
+            setSupportProgressTint(mProgressTintResId);
         }
         if (mIndeterminateTintResId != 0) {
-            setSupportIndeterminateTint(mView.getResources().getColorStateList(mIndeterminateTintResId));
+            setSupportIndeterminateTint(mIndeterminateTintResId);
         }
     }
 }
