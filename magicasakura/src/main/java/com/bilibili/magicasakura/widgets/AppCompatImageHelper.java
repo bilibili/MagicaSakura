@@ -22,7 +22,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.bilibili.magicasakura.R;
@@ -34,13 +33,13 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/15
  */
-public class AppCompatImageHelper extends AppCompatBaseHelper {
+public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
 
     private TintInfo mImageTintInfo;
     private int mImageResId;
     private int mImageTintResId;
 
-    public AppCompatImageHelper(View view, TintManager tintManager) {
+    public AppCompatImageHelper(ImageView view, TintManager tintManager) {
         super(view, tintManager);
     }
 
@@ -49,7 +48,7 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintImageHelper, defStyleAttr, 0);
         // first resolve srcCompat due to not extending by AppCompatImageView
-        if (((ImageView) mView).getDrawable() == null) {
+        if (mView.getDrawable() == null) {
             Drawable image = mTintManager.getDrawable(mImageResId = array.getResourceId(R.styleable.TintImageHelper_srcCompat, 0));
             if (image != null) {
                 setImageDrawable(image);
@@ -109,7 +108,7 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
     private void setImageDrawable(Drawable drawable) {
         if (skipNextApply()) return;
 
-        ((ImageView) mView).setImageDrawable(drawable);
+        mView.setImageDrawable(drawable);
     }
 
     private boolean setSupportImageTint(int resId) {
@@ -134,7 +133,7 @@ public class AppCompatImageHelper extends AppCompatBaseHelper {
     }
 
     private boolean applySupportImageTint() {
-        Drawable image = ((ImageView) mView).getDrawable();
+        Drawable image = mView.getDrawable();
         if (image != null && mImageTintInfo != null && mImageTintInfo.mHasTintList) {
             Drawable tintDrawable = image.mutate();
             tintDrawable = DrawableCompat.wrap(tintDrawable);

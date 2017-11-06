@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -28,6 +29,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/2/14
  */
+@SuppressLint("AppCompatCustomView")
 public class TintAutoCompleteTextView extends AutoCompleteTextView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatCompoundDrawableHelper.CompoundDrawableExtensible {
     private AppCompatBackgroundHelper mBackgroundHelper;

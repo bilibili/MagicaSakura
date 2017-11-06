@@ -27,7 +27,6 @@ import android.widget.TextView;
 
 import com.bilibili.magicasakura.R;
 import com.bilibili.magicasakura.utils.DrawableUtils;
-import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.utils.TintInfo;
 import com.bilibili.magicasakura.utils.TintManager;
 
@@ -35,7 +34,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
-public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper {
+public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextView> {
 
     private TintInfo[] mCompoundDrawableTintInfos = new TintInfo[4];
 
@@ -123,7 +122,7 @@ public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper {
     private void setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top, Drawable right, Drawable bottom) {
         if (skipNextApply()) return;
 
-        ((TextView) mView).setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
+        mView.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
     }
 
     private Drawable getCompoundDrawableByPosition(int i) {
@@ -164,7 +163,7 @@ public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper {
     }
 
     private Drawable applySupportCompoundDrawableTint(int position) {
-        Drawable originDrawable = ((TextView) mView).getCompoundDrawables()[position];
+        Drawable originDrawable = mView.getCompoundDrawables()[position];
         Drawable compoundDrawable = originDrawable;
         TintInfo tintInfo = mCompoundDrawableTintInfos[position];
         if (compoundDrawable != null && tintInfo != null && tintInfo.mHasTintList) {

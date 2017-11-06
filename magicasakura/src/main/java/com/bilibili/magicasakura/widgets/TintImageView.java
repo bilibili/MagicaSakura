@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -28,6 +29,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/8
  */
+@SuppressLint("AppCompatCustomView")
 public class TintImageView extends ImageView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatImageHelper.ImageExtensible {
     private AppCompatBackgroundHelper mBackgroundHelper;

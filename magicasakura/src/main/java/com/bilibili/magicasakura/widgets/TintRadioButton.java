@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -37,6 +38,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/1/19
  */
+@SuppressLint("AppCompatCustomView")
 public class TintRadioButton extends RadioButton implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible
         , AppCompatCompoundButtonHelper.CompoundButtonExtensible, AppCompatTextHelper.TextExtensible {
     private AppCompatTextHelper mTextHelper;

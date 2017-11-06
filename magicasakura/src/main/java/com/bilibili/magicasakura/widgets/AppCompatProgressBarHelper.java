@@ -34,7 +34,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/2/4
  */
-public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
+public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgressBar> {
 
     private int mProgressTintResId;
     private int mIndeterminateTintResId;
@@ -42,7 +42,7 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
     private TintInfo mProgressTintInfo;
     private TintInfo mIndeterminateTintInfo;
 
-    public AppCompatProgressBarHelper(View view, TintManager tintManager) {
+    public AppCompatProgressBarHelper(TintProgressBar view, TintManager tintManager) {
         super(view, tintManager);
     }
 
@@ -99,11 +99,11 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
     }
 
     private void applySupportIndeterminateTint() {
-        Drawable mIndeterminateDrawable = ((ProgressBar) mView).getIndeterminateDrawable();
+        Drawable mIndeterminateDrawable = mView.getIndeterminateDrawable();
         if (mIndeterminateDrawable != null && mIndeterminateTintInfo != null) {
             final TintInfo tintInfo = mIndeterminateTintInfo;
             if (tintInfo.mHasTintList || tintInfo.mHasTintMode) {
-                ((ProgressBar) mView).setIndeterminateDrawable(mIndeterminateDrawable = mIndeterminateDrawable.mutate());
+                mView.setIndeterminateDrawable(mIndeterminateDrawable = mIndeterminateDrawable.mutate());
                 TintManager.tintViewDrawable(mView, mIndeterminateDrawable, mIndeterminateTintInfo);
                 // The drawable (or one of its children) may not have been
                 // stateful before applying the tint, so let's try again.
@@ -118,9 +118,9 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper {
     private Drawable getTintTarget(int layerId, boolean shouldFallback) {
         Drawable layer = null;
 
-        final Drawable d = ((ProgressBar) mView).getProgressDrawable();
+        final Drawable d = mView.getProgressDrawable();
         if (d != null) {
-            ((ProgressBar) mView).setProgressDrawable(d.mutate());
+            mView.setProgressDrawable(d.mutate());
 
             if (d instanceof LayerDrawable) {
                 layer = ((LayerDrawable) d).findDrawableByLayerId(layerId);

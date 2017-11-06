@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
@@ -36,6 +37,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * special view for replacing view in preference , not recommend to use it in common
  * layout: select_dialog_singlechoice_xxx
  */
+@SuppressLint("AppCompatCustomView")
 public class TintCheckedTextView extends CheckedTextView implements Tintable {
     private static final int[] ATTRS = {
             android.R.attr.drawableLeft,

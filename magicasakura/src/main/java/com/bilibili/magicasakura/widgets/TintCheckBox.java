@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -37,6 +38,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/1/27
  */
+@SuppressLint("AppCompatCustomView")
 public class TintCheckBox extends CheckBox implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatCompoundButtonHelper.CompoundButtonExtensible, AppCompatTextHelper.TextExtensible {
     private AppCompatBackgroundHelper mBackgroundHelper;

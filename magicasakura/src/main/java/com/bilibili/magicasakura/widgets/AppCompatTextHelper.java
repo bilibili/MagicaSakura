@@ -31,7 +31,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
-public class AppCompatTextHelper extends AppCompatBaseHelper {
+public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
 
     //If writing like this:
     //int[] ATTRS = { R.attr.tintText, android.R.attr.textColor, android.R.attr.textColorLink, ...};
@@ -43,7 +43,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper {
     private TintInfo mTextColorTintInfo;
     private TintInfo mTextLinkColorTintInfo;
 
-    public AppCompatTextHelper(View view, TintManager tintManager) {
+    public AppCompatTextHelper(TextView view, TintManager tintManager) {
         super(view, tintManager);
     }
 
@@ -111,7 +111,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper {
     private void setTextColor(ColorStateList tint) {
         if (skipNextApply()) return;
 
-        ((TextView) mView).setTextColor(tint);
+        mView.setTextColor(tint);
     }
 
     private void setTextColor(@ColorRes int resId) {
@@ -164,7 +164,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper {
 
     private void applySupportTextLinkColorTint() {
         if (mTextLinkColorTintInfo != null && mTextLinkColorTintInfo.mHasTintList) {
-            ((TextView) mView).setLinkTextColor(mTextLinkColorTintInfo.mTintList);
+            mView.setLinkTextColor(mTextLinkColorTintInfo.mTintList);
         }
     }
 

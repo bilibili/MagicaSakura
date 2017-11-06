@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -32,6 +33,8 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/10/25
  */
+
+@SuppressLint("AppCompatCustomView")
 public class TintButton extends Button implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatTextHelper.TextExtensible {
     private AppCompatTextHelper mTextHelper;

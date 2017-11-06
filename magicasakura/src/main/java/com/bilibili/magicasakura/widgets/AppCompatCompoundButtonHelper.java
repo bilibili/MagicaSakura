@@ -35,7 +35,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/23
  */
-public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper {
+public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundButton> {
 
     private TintInfo mCompoundButtonTintInfo;
     private int mCompoundButtonResId;
@@ -106,7 +106,7 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper {
     private void setButtonDrawable(Drawable drawable) {
         if (skipNextApply()) return;
 
-        ((CompoundButton) mView).setButtonDrawable(drawable);
+        mView.setButtonDrawable(drawable);
     }
 
     public boolean setSupportButtonDrawableTint(int resId) {
@@ -131,7 +131,7 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper {
     }
 
     public boolean applySupportButtonDrawableTint() {
-        Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable((CompoundButton) mView);
+        Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable(mView);
         if (buttonDrawable != null && mCompoundButtonTintInfo != null && mCompoundButtonTintInfo.mHasTintList) {
             buttonDrawable = DrawableCompat.wrap(buttonDrawable);
             buttonDrawable = buttonDrawable.mutate();
@@ -165,7 +165,7 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
             // Before JB-MR1 the button drawable wasn't taken into account for padding. We'll
             // workaround that here
-            Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable((CompoundButton) mView);
+            Drawable buttonDrawable = CompoundButtonCompat.getButtonDrawable(mView);
             if (buttonDrawable != null) {
                 superValue += buttonDrawable.getIntrinsicWidth();
             }

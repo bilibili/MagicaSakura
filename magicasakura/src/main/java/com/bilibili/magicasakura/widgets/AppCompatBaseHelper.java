@@ -25,13 +25,13 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/10/1
  */
-public abstract class AppCompatBaseHelper {
-    protected View mView;
+public abstract class AppCompatBaseHelper<T extends View> {
+    protected T mView;
     protected TintManager mTintManager;
 
     private boolean mSkipNextApply;
 
-    public AppCompatBaseHelper(View view, TintManager tintManager) {
+    public AppCompatBaseHelper(T view, TintManager tintManager) {
         mView = view;
         mTintManager = tintManager;
     }
