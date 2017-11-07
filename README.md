@@ -1,6 +1,7 @@
 ![cover](https://raw.githubusercontent.com/xyczero/MagicaSakura/master/screenshot/magicasakura_cover.png)
 
 ## MagicaSakura
+[ ![Download](https://api.bintray.com/packages/xyczero/maven/MagicaSakura/images/download.svg?version=0.1.8) ](https://bintray.com/xyczero/maven/MagicaSakura/0.1.8/link)
 
 MagicaSakura is an Android multi theme library which supporting both daily colorful theme and night theme.
 
