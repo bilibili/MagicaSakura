@@ -31,7 +31,7 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 ## Gradle Dependency
 ```
-compile 'com.bilibili:magicasakura:0.1.7@aar'
+compile 'com.bilibili:magicasakura:0.1.8@aar'
 ```
 
 ## Maven Dependency
@@ -39,7 +39,7 @@ compile 'com.bilibili:magicasakura:0.1.7@aar'
 <dependency>
   <groupId>com.bilibili</groupId>
   <artifactId>magicasakura</artifactId>
-  <version>0.1.7</version>
+  <version>0.1.8</version>
   <type>aar</type>
 </dependency>
 ```
