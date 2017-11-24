@@ -48,7 +48,7 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+   public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintViewForegroundHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintViewForegroundHelper_foregroundTint)) {
             mForegroundTintResId = array.getResourceId(R.styleable.TintViewForegroundHelper_foregroundTint, 0);

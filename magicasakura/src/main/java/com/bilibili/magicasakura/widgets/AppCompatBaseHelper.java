@@ -49,7 +49,7 @@ public abstract class AppCompatBaseHelper<T extends View> {
         mSkipNextApply = flag;
     }
 
-    abstract void loadFromAttribute(AttributeSet attrs, int defStyleAttr);
+    public abstract void loadFromAttribute(AttributeSet attrs, int defStyleAttr);
 
     public abstract void tint();
 }

@@ -44,7 +44,7 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgress
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintProgressBarHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintProgressBarHelper_progressTint)) {
             setSupportProgressTint(mProgressTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressTint, 0));

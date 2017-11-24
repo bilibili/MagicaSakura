@@ -49,7 +49,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintTextHelper , defStyleAttr, 0);
 
         int textColorId = array.getResourceId(R.styleable.TintTextHelper_android_textColor, 0);

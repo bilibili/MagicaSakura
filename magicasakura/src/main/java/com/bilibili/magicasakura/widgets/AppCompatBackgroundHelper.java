@@ -50,7 +50,7 @@ public class AppCompatBackgroundHelper extends AppCompatBaseHelper<View> {
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         initPadding();
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintViewBackgroundHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintViewBackgroundHelper_backgroundTint)) {
