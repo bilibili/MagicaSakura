@@ -48,7 +48,7 @@ public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextVie
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         Context context = mView.getContext();
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TintCompoundDrawableHelper, defStyleAttr, 0);
         mCompoundDrawableResIds[0] = a.getResourceId(R.styleable.TintCompoundDrawableHelper_android_drawableLeft, 0);

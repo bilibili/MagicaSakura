@@ -47,7 +47,7 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundB
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintCompoundButtonHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintCompoundButtonHelper_compoundButtonTint)) {
             mCompoundButtonTintResId = array.getResourceId(R.styleable.TintCompoundButtonHelper_compoundButtonTint, 0);

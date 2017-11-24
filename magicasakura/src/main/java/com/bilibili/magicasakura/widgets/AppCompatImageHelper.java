@@ -45,7 +45,7 @@ public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintImageHelper, defStyleAttr, 0);
         // first resolve srcCompat due to not extending by AppCompatImageView
         if (mView.getDrawable() == null) {
