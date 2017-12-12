@@ -14,7 +14,9 @@ android {
         versionCode 1
         versionName version
     }
-
+    sourceSets{
+        main.res.srcDirs 'res', 'res-public'
+    }
     buildTypes {
         release {
             minifyEnabled false

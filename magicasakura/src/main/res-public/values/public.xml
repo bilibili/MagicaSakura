@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- layout -->
+    <!--<public type="layout"   name="dialog_progress"/> &lt;!&ndash; example: null &ndash;&gt;-->
+    <!--<public type="layout"   name="dialog_alert_progress"/> &lt;!&ndash; example: null &ndash;&gt;-->
+
+    <!-- string -->
+    <!--<public type="string"   name="app_name"/> &lt;!&ndash; example: [Library] &ndash;&gt;-->
+
+    <!-- attr -->
+    <public type="attr" name="themeColorSecondary"/> <!-- example: [] -->
+    <public type="attr" name="backgroundTint"/>
+    <public type="attr" name="backgroundTintMode"/>
+    <public type="attr" name="foregroundTint"/>
+    <public type="attr" name="foregroundTintMode"/>
+    <public type="attr" name="compoundButtonTint"/>
+    <public type="attr" name="compoundButtonTintMode"/>
+    <public type="attr" name="srcCompat"/>
+    <public type="attr" name="imageTint"/>
+    <public type="attr" name="imageTintMode"/>
+    <public type="attr" name="drawableLeftTint"/>
+    <public type="attr" name="drawableLeftTintMode"/>
+    <public type="attr" name="drawableTopTint"/>
+    <public type="attr" name="drawableTopTintMode"/>
+    <public type="attr" name="drawableRightTint"/>
+    <public type="attr" name="drawableRightTintMode"/>
+    <public type="attr" name="drawableBottomTint"/>
+    <public type="attr" name="drawableBottomTintMode"/>
+    <public type="attr" name="progressTint"/>
+    <public type="attr" name="progressIndeterminateTint"/>
+    <public type="attr" name="thumbTint"/>
+    <public type="attr" name="thumbTintMode"/>
+    <public type="attr" name="track"/>
+    <public type="attr" name="trackTint"/>
+    <public type="attr" name="trackTintMode"/>
+    <public type="attr" name="drawableTint"/>
+    <public type="attr" name="drawableTintMode"/>
+
+</resources>
