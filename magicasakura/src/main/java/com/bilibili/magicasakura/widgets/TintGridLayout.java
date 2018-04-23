@@ -19,8 +19,8 @@ package com.bilibili.magicasakura.widgets;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
+import android.widget.GridLayout;
 
 import com.bilibili.magicasakura.utils.TintManager;
 

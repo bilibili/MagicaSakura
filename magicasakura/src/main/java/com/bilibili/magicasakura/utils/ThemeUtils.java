@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -266,9 +267,10 @@ public class ThemeUtils {
         return false;
     }
 
+    @SuppressLint("RestrictedApi")
     public static Drawable getWrapperDrawable(Drawable drawable) {
-        if (drawable instanceof android.support.v4.graphics.drawable.DrawableWrapper) {
-            return ((android.support.v4.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable();
+        if (drawable instanceof android.support.v4.graphics.drawable.WrappedDrawable) {
+            return ((android.support.v4.graphics.drawable.WrappedDrawable) drawable).getWrappedDrawable();
         } else if (drawable instanceof android.support.v7.graphics.drawable.DrawableWrapper) {
             return ((android.support.v7.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable();
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && drawable instanceof android.graphics.drawable.DrawableWrapper) {
