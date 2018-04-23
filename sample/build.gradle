@@ -26,7 +26,5 @@ dependencies {
     compile project(':magicasakura')
 
     compile "com.android.support:design:${rootProject.ext.supportVersion}"
-    compile "com.android.support:recyclerview-v7:${rootProject.ext.supportVersion}"
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
     compile "com.android.support:preference-v7:${rootProject.ext.supportVersion}"
 }
