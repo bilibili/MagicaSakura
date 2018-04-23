@@ -1,7 +1,10 @@
 package com.bilibili.magicasakura.utils;
 
+import android.support.annotation.RestrictTo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
+
+import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
 /**
  * just used for fix <pre>java.lang.IndexOutOfBoundsException</pre> while
@@ -10,7 +13,9 @@ import android.view.inputmethod.InputConnectionWrapper;
  * @email zhouyanbin1029@gmail.com
  * @create 2016-08-29 11:37
  */
-public class InputConnectionImpl extends InputConnectionWrapper {
+
+@RestrictTo(LIBRARY)
+public final class InputConnectionImpl extends InputConnectionWrapper {
 
     public InputConnectionImpl(InputConnection target, boolean mutable) {
         super(target, mutable);

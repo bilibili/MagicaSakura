@@ -49,5 +49,6 @@ public class TintAppAlertDialogDividingView extends View {
                 setBackgroundColor(ThemeUtils.getThemeAttrColor(context, R.attr.themeColorSecondary));
             }
         }
+        a.recycle();
     }
 }

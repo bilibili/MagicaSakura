@@ -25,7 +25,7 @@ import static com.bilibili.magicasakura.utils.DrawableUtils.obtainAttributes;
  * @email jungly.ik@gmail.com
  * @since 2017/05/26
  */
-public class VectorDrawableInflateImpl implements DrawableInflateDelegate {
+class VectorDrawableInflateImpl implements DrawableInflateDelegate {
 
     private int resId;
 

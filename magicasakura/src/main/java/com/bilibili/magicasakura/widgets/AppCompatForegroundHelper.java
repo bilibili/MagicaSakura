@@ -35,14 +35,14 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/4/7
  */
-public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
+class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
 
     private TintInfo mForegroundTintInfo;
 
     private int mForegroundResId;
     private int mForegroundTintResId;
 
-    public AppCompatForegroundHelper(View view, TintManager tintManager) {
+    AppCompatForegroundHelper(View view, TintManager tintManager) {
         super(view, tintManager);
     }
 

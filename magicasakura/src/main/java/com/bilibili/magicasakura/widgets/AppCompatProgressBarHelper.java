@@ -30,7 +30,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/2/4
  */
-public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgressBar> {
+class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgressBar> {
 
     private int mProgressTintResId;
     private int mIndeterminateTintResId;
@@ -38,7 +38,7 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgress
     private TintInfo mProgressTintInfo;
     private TintInfo mIndeterminateTintInfo;
 
-    public AppCompatProgressBarHelper(TintProgressBar view, TintManager tintManager) {
+    AppCompatProgressBarHelper(TintProgressBar view, TintManager tintManager) {
         super(view, tintManager);
     }
 

@@ -19,14 +19,18 @@ package com.bilibili.magicasakura.drawables;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.RestrictTo;
 import android.util.SparseArray;
 
+import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+
 /**
- * This is an extension to {@link StateListDrawable} that workaround a bug not allowing
- * to set a {@link ColorFilter} to the drawable in one of the states., it add a method
- * {@link #addState(int[], Drawable, ColorFilter)} for that purpose.
+ * This is an extension to {@link android.graphics.drawable.StateListDrawable} that workaround a bug not allowing
+ * to set a {@link android.graphics.ColorFilter} to the drawable in one of the states., it add a method
+ * {@link #addState(int[], android.graphics.drawable.Drawable, android.graphics.ColorFilter)} for that purpose.
  */
-public class FilterableStateListDrawable extends StateListDrawable {
+@RestrictTo(LIBRARY)
+public final class FilterableStateListDrawable extends StateListDrawable {
 
     private int currIdx = -1;
     private int childrenCount = 0;

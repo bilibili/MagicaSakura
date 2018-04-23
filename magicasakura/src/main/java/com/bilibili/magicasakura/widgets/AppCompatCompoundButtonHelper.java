@@ -35,13 +35,13 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/23
  */
-public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundButton> {
+class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundButton> {
 
     private TintInfo mCompoundButtonTintInfo;
     private int mCompoundButtonResId;
     private int mCompoundButtonTintResId;
 
-    public AppCompatCompoundButtonHelper(CompoundButton view, TintManager tintManager) {
+    AppCompatCompoundButtonHelper(CompoundButton view, TintManager tintManager) {
         super(view, tintManager);
     }
 

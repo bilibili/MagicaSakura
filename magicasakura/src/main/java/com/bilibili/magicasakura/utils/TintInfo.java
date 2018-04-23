@@ -18,14 +18,18 @@ package com.bilibili.magicasakura.utils;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
+import android.support.annotation.RestrictTo;
 
 import java.util.LinkedList;
+
+import static android.support.annotation.RestrictTo.Scope.LIBRARY;
 
 /**
  * @author xyczero617@gmail.com
  * @time 15/11/21
  */
 
+@RestrictTo(LIBRARY)
 public class TintInfo {
     public ColorStateList mTintList;
     public PorterDuff.Mode mTintMode;

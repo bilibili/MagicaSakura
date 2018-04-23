@@ -20,7 +20,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorRes;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import com.bilibili.magicasakura.R;
@@ -31,7 +30,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
-public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
+class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
 
     //If writing like this:
     //int[] ATTRS = { R.attr.tintText, android.R.attr.textColor, android.R.attr.textColorLink, ...};
@@ -43,7 +42,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
     private TintInfo mTextColorTintInfo;
     private TintInfo mTextLinkColorTintInfo;
 
-    public AppCompatTextHelper(TextView view, TintManager tintManager) {
+    AppCompatTextHelper(TextView view, TintManager tintManager) {
         super(view, tintManager);
     }
 

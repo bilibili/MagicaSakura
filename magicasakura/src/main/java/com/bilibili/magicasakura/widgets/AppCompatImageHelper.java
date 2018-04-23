@@ -33,13 +33,13 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/15
  */
-public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
+class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
 
     private TintInfo mImageTintInfo;
     private int mImageResId;
     private int mImageTintResId;
 
-    public AppCompatImageHelper(ImageView view, TintManager tintManager) {
+    AppCompatImageHelper(ImageView view, TintManager tintManager) {
         super(view, tintManager);
     }
 

@@ -27,6 +27,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
 import android.support.v4.util.LruCache;
 import android.support.v7.view.ContextThemeWrapper;
 import android.util.Log;
@@ -39,11 +40,14 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 
+import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+
 /**
  * @author xyczero617@gmail.com
  * @time 15/9/15
  */
-public class TintManager {
+@RestrictTo(LIBRARY)
+public final class TintManager {
 
     private static final String TAG = "TintManager";
     private static final boolean DEBUG = false;

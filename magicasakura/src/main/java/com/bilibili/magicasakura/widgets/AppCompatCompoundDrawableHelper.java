@@ -34,7 +34,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
-public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextView> {
+class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextView> {
 
     private TintInfo[] mCompoundDrawableTintInfos = new TintInfo[4];
 
@@ -42,7 +42,7 @@ public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextVie
     private int[] mCompoundDrawableTintResIds = new int[4];
     private PorterDuff.Mode[] mCompoundDrawableTintModes = new PorterDuff.Mode[4];
 
-    public AppCompatCompoundDrawableHelper(TextView view, TintManager tintManager) {
+    AppCompatCompoundDrawableHelper(TextView view, TintManager tintManager) {
         super(view, tintManager);
     }
 

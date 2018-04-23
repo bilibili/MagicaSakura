@@ -20,7 +20,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @since 17/5/23
  */
 
-public class AppCompatSwitchHelper {
+class AppCompatSwitchHelper {
 
     private int[] sAttrs;
     private SwitchCompat mSwitchCompat;
@@ -34,7 +34,7 @@ public class AppCompatSwitchHelper {
     private int mTintResId;
     private PorterDuff.Mode mTintMode;
 
-    public AppCompatSwitchHelper(SwitchCompat switchCompat, TintManager tintManager,
+    AppCompatSwitchHelper(SwitchCompat switchCompat, TintManager tintManager,
                                  int[] attrs, @NonNull DrawableCallback callback) {
         this.sAttrs = attrs;
         this.mTintManager = tintManager;

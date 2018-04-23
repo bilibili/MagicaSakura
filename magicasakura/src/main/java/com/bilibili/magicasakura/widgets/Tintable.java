@@ -16,9 +16,14 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.content.Context;
+
 /**
  * Created by xyczero on 15/9/6.
  * Email : xyczero@sina.com
+ *
+ * Developers can implement this interface, the view that implement it will be refreshed when calling
+ * {@link com.bilibili.magicasakura.utils.ThemeUtils#refreshUI(Context)}
  */
 public interface Tintable {
     void tint();
