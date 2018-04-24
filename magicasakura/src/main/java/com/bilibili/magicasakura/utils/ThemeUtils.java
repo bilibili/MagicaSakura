@@ -307,7 +307,7 @@ public class ThemeUtils {
         return resource;
     }
 
-    static com.bilibili.magicasakura.utils.TintInfo parseColorStateList(ColorStateList origin) {
+    static TintInfo parseColorStateList(ColorStateList origin) {
         if (origin == null) return null;
 
         boolean hasDisable = false;
@@ -353,7 +353,7 @@ public class ThemeUtils {
         }
 
         if (colorList.size() > 1) {
-            return new com.bilibili.magicasakura.utils.TintInfo(stateList, colorList);
+            return new TintInfo(stateList, colorList);
         } else {
             return null;
         }

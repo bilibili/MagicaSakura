@@ -150,7 +150,7 @@ public final class DrawableUtils {
 
     static int getAttrTintColor(Context context, AttributeSet attrs, int attr, int defaultValue) {
         final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
-        final int tintColor = com.bilibili.magicasakura.utils.ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
+        final int tintColor = ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
         a.recycle();
         return tintColor;
     }
@@ -207,7 +207,7 @@ public final class DrawableUtils {
     static int getAttrColor(Context context, AttributeSet attrs, int attr, int defaultValue) {
         TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final int colorId = a.getResourceId(0, 0);
-        final int value = colorId != 0 ? com.bilibili.magicasakura.utils.ThemeUtils.replaceColorById(context, colorId) : com.bilibili.magicasakura.utils.ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
+        final int value = colorId != 0 ? ThemeUtils.replaceColorById(context, colorId) : ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
         a.recycle();
         return value;
     }
