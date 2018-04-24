@@ -248,6 +248,9 @@ compile 'com.bilibili:magicasakura:0.1.8@aar'
 ## Download
 [Demo Download here](http://7xr9x5.com1.z0.glb.clouddn.com/magicasrkura_sample-release.apk)
 
+## TODO
+- Refactor part of the code including TintManager...
+
 ## License
 
 Copyright 2016 Bilibili
