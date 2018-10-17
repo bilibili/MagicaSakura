@@ -33,15 +33,15 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
-import android.support.annotation.AttrRes;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StyleRes;
-import android.support.v4.graphics.ColorUtils;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.view.ContextThemeWrapper;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StyleRes;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.StateSet;
@@ -269,10 +269,10 @@ public class ThemeUtils {
 
     @SuppressLint("RestrictedApi")
     public static Drawable getWrapperDrawable(Drawable drawable) {
-        if (drawable instanceof android.support.v4.graphics.drawable.WrappedDrawable) {
-            return ((android.support.v4.graphics.drawable.WrappedDrawable) drawable).getWrappedDrawable();
-        } else if (drawable instanceof android.support.v7.graphics.drawable.DrawableWrapper) {
-            return ((android.support.v7.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable();
+        if (drawable instanceof androidx.core.graphics.drawable.WrappedDrawable) {
+            return ((androidx.core.graphics.drawable.WrappedDrawable) drawable).getWrappedDrawable();
+        } else if (drawable instanceof androidx.appcompat.graphics.drawable.DrawableWrapper) {
+            return ((androidx.appcompat.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable();
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && drawable instanceof android.graphics.drawable.DrawableWrapper) {
             return ((android.graphics.drawable.DrawableWrapper) drawable).getDrawable();
         }

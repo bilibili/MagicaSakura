@@ -19,10 +19,10 @@ package com.bilibili.magicasakura.drawables;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.RestrictTo;
+import androidx.annotation.RestrictTo;
 import android.util.SparseArray;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY;
 
 /**
  * This is an extension to {@link android.graphics.drawable.StateListDrawable} that workaround a bug not allowing

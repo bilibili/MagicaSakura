@@ -18,11 +18,11 @@ package com.bilibili.magicasakura.utils;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
-import android.support.annotation.RestrictTo;
+import androidx.annotation.RestrictTo;
 
 import java.util.LinkedList;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY;
 
 /**
  * @author xyczero617@gmail.com

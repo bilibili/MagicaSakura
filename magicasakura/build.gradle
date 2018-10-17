@@ -97,7 +97,7 @@ bintray {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.android.support:design:${rootProject.ext.supportVersion}"
-    implementation "com.android.support.constraint:constraint-layout:${rootProject.ext.constraintVersion}"
+    implementation "com.google.android.material:material:${rootProject.ext.androidxtVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.ext.constraintVersion}"
 
 }

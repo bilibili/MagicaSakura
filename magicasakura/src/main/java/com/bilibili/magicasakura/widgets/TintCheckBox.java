@@ -24,10 +24,10 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.CompoundButtonCompat;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.core.widget.CompoundButtonCompat;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
 

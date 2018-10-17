@@ -22,7 +22,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.DialogTitle
+    <androidx.appcompat.widget.DialogTitle
         android:id="@+id/title"
         style="?android:attr/windowTitleStyle"
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             android:src="@drawable/selector_pick_item"
             app:backgroundTint="@color/pink" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -69,7 +69,7 @@
             android:src="@drawable/selector_pick_item"
             app:backgroundTint="@color/purple" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -84,7 +84,7 @@
             android:src="@drawable/selector_pick_item"
             app:backgroundTint="@color/blue" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -117,7 +117,7 @@
             android:src="@drawable/selector_pick_item"
             app:backgroundTint="@color/green_light" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -132,7 +132,7 @@
             android:src="@drawable/selector_pick_item"
             app:backgroundTint="@color/yellow" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -147,7 +147,7 @@
             android:src="@drawable/selector_pick_item"
             app:backgroundTint="@color/orange" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -175,7 +175,7 @@
         android:paddingRight="10dp"
         android:paddingTop="?attr/dialogPreferredPadding">
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"

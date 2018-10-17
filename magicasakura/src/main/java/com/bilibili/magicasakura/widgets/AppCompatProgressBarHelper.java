@@ -19,7 +19,7 @@ package com.bilibili.magicasakura.widgets;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.R;

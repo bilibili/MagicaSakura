@@ -25,6 +25,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':magicasakura')
 
-    implementation "com.android.support:design:${rootProject.ext.supportVersion}"
-    implementation "com.android.support:preference-v7:${rootProject.ext.supportVersion}"
+    implementation "com.google.android.material:material:${rootProject.ext.androidxtVersion}"
+    implementation "androidx.preference:preference:${rootProject.ext.androidxtVersion}"
 }

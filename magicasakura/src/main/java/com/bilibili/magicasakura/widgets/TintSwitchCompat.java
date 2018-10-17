@@ -7,11 +7,11 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.widget.SwitchCompat;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.core.widget.CompoundButtonCompat;
+import androidx.appcompat.widget.SwitchCompat;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.R;
@@ -38,7 +38,7 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
     }
 
     public TintSwitchCompat(Context context, AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.switchStyle);
+        this(context, attrs, androidx.appcompat.R.attr.switchStyle);
     }
 
     public TintSwitchCompat(Context context, AttributeSet attrs, int defStyleAttr) {
