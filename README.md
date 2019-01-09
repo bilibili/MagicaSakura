@@ -40,7 +40,7 @@ compile 'com.bilibili:magicasakura:0.1.9-beta3@aar'
 <dependency>
   <groupId>com.bilibili</groupId>
   <artifactId>magicasakura</artifactId>
-  <version>0.1.8</version>
+  <version>0.1.9-beta3</version>
   <type>aar</type>
 </dependency>
 ```
