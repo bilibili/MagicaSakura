@@ -128,6 +128,11 @@ class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgressBar> {
         return layer;
     }
 
+    public void setIndeterminateTintResId(int indeterminateTintResId) {
+        this.mIndeterminateTintResId = indeterminateTintResId;
+        setSupportIndeterminateTint(indeterminateTintResId);
+    }
+
     @Override
     public void tint() {
         if (mProgressTintResId != 0) {
