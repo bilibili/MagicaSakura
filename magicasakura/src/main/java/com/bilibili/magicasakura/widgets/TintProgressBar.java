@@ -48,6 +48,10 @@ public class TintProgressBar extends ProgressBar implements Tintable {
         mProgressBarHelper.loadFromAttribute(attrs, defStyleAttr);
     }
 
+    public void setIndeterminateTintResId(int indeterminateTintResId) {
+        mProgressBarHelper.setIndeterminateTintResId(indeterminateTintResId);
+    }
+
     @Override
     public void tint() {
         if (mProgressBarHelper != null) {

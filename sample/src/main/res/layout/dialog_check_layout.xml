@@ -22,7 +22,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.DialogTitle
+    <androidx.appcompat.widget.DialogTitle
         android:id="@+id/title"
         style="?android:attr/windowTitleStyle"
         android:layout_width="match_parent"
@@ -133,7 +133,7 @@
         android:paddingRight="12dp"
         android:paddingTop="8dp">
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"

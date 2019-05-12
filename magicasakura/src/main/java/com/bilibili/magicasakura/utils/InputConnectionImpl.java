@@ -1,10 +1,10 @@
 package com.bilibili.magicasakura.utils;
 
-import android.support.annotation.RestrictTo;
+import androidx.annotation.RestrictTo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 
-import static android.support.annotation.RestrictTo.Scope.LIBRARY;
+import static androidx.annotation.RestrictTo.Scope.LIBRARY;
 
 /**
  * just used for fix <pre>java.lang.IndexOutOfBoundsException</pre> while

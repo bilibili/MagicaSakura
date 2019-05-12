@@ -22,7 +22,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.DialogTitle
+    <androidx.appcompat.widget.DialogTitle
         android:id="@+id/title"
         style="?android:attr/windowTitleStyle"
         android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                 android:text="Circle"
                 app:compoundButtonTint="@color/selector_compound" />
 
-            <android.support.v4.widget.Space
+            <androidx.legacy.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1" />
@@ -97,7 +97,7 @@
                 android:indeterminate="true"
                 app:progressIndeterminateTint="@color/theme_color_primary" />
 
-            <android.support.v4.widget.Space
+            <androidx.legacy.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1" />

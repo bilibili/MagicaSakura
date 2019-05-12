@@ -19,8 +19,8 @@ package com.bilibili.magicasakura.widgets;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -168,12 +168,14 @@ class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
 
     @Override
     public void tint() {
-        if (mImageTintResId == 0 || !setSupportImageTint(mImageTintResId)) {
-            Drawable drawable = mTintManager.getDrawable(mImageResId);
-            if (drawable == null) {
-                drawable = mImageResId == 0 ? null : ContextCompat.getDrawable(mView.getContext(), mImageResId);
+        if (mImageResId != 0) {
+            if (mImageTintResId == 0 || !setSupportImageTint(mImageTintResId)) {
+                Drawable drawable = mTintManager.getDrawable(mImageResId);
+                if (drawable == null) {
+                    drawable = mImageResId == 0 ? null : ContextCompat.getDrawable(mView.getContext(), mImageResId);
+                }
+                setImageDrawable(drawable);
             }
-            setImageDrawable(drawable);
         }
     }
 
