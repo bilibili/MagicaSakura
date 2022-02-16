@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.R;
@@ -102,7 +103,7 @@ class LayerDrawableInflateImpl implements DrawableInflateDelegate {
             }
         }
 
-        if (drawables[0] == null || drawableUseCount != layerAttrUseCount) {
+        if (!isDrawableValidCompat(drawables) || drawableUseCount != layerAttrUseCount) {
             return null;
         } else {
             LayerDrawable layerDrawable = new LayerDrawable(drawables);
@@ -126,4 +127,19 @@ class LayerDrawableInflateImpl implements DrawableInflateDelegate {
         childLayersAttrs[3] = DrawableUtils.getAttrDimensionPixelOffset(context, attrs, ATTRS[3]);
         childLayersAttrs[4] = DrawableUtils.getAttrResourceId(context, attrs, ATTRS[4], 0);
     }
+
+
+    private boolean isDrawableValidCompat(Drawable[] drawables) {
+        if (drawables == null) {
+            return false;
+        }
+        boolean aboveP = Build.VERSION.SDK_INT > Build.VERSION_CODES.P;
+        for (Drawable drawable : drawables) {
+            if (drawable == null && !aboveP) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
