@@ -148,7 +148,7 @@ class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
             }
             setImageDrawable(tintDrawable);
             if (image == tintDrawable) {
-                tintDrawable.invalidateSelf();
+                mView.invalidate();
             }
             return true;
         }
